@@ -1,0 +1,319 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Tabs functionality</title>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+         " rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $("#tabs-1").tabs();
+            $("#tabs-left").tabs();
+            $("#tabs-3").tabs();
+            $("#tabs-1").tabs("disable", 3);
+
+            $(function () { $("#nav li").width("24%") });
+            $(function () { $("#nav a").width("92%") });
+
+            $(function () { $("#Lnav li").height("24%") });
+            $(function () { $("#Lnav a").height("92%") });
+
+
+            $(function () { $("#3Lnav li").height("24%") });
+            $(function () { $("#3Lnav a").height("92%") });
+
+            $(function () {
+                $("#slider").slider({
+                    value: 0,
+                    min: 0,
+                    max: 1500,
+                    step: 15,
+                    slide: function (event, ui) {
+                        $("#amount").val(ui.value * 1 / 60 + " hrs");
+                    }
+                });
+                $("#amount").val($("#slider").slider("value") + " hrs");
+            });
+
+            $(function () {
+                $("#datepicker").datepicker({ altField: "#startDate" });
+                $("#datepicker2").datepicker({ altField: "#endDate" });
+            });
+
+            $(function () { 
+                $("#dialog_succ").dialog({
+                    autoOpen: false,
+                    position: { my: "bottom", at: "right top", of: "#datepicker2" }
+                });
+            });
+            $("#button").on("click", function () {
+                $("#dialog_succ").dialog("open");
+            });
+
+            $(function () {
+                $("#3dialog_succ").dialog({
+                    autoOpen: false
+                });
+            });
+            $("#3button").on("click", function () {
+                $("#3dialog_succ").dialog("open");
+            });
+
+            $(function () {
+                $("#report_dialog_succ").dialog({
+                    autoOpen: false
+                });
+            });
+            $("#report_button").on("click", function () {
+                $("#report_dialog_succ").dialog("open");
+            });
+
+            $(function () {
+                $("#export_dialog_succ").dialog({
+                    autoOpen: false
+                });
+            });
+            $("#export_button").on("click", function () {
+                $("#export_dialog_succ").dialog("open");
+            });
+        });
+    </script>
+
+    <style>
+        #tabs-1 {
+            padding: 0px;
+            background: none;
+            border-width: 0px;
+        }
+
+            #tabs-1 .ui-tabs-nav {
+                padding-left: 0px;
+                background: transparent;
+                border-width: 0px 0px 1px 0px;
+                -moz-border-radius: 0px;
+                -webkit-border-radius: 0px;
+                border-radius: 0px;
+            }
+
+            #tabs-1 .ui-tabs-panel {
+                background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top;
+                border-width: 0px 1px 1px 1px;
+            }
+
+        #tabs-left {
+            position: relative;
+            padding-left: 10em;
+        }
+
+            #tabs-left .ui-tabs-nav {
+                position: absolute;
+                left: 0.25em;
+                top: 0.25em;
+                bottom: 0.25em;
+                width: 9em;
+                padding: 0.2em 0.2em 0.2em 0.2em;
+            }
+
+                #tabs-left .ui-tabs-nav li {
+                    right: 1px;
+                    width: 100%;
+                    border-bottom-width: 1px !important;
+                    -moz-border-radius: 4px 4px 4px 4px;
+                    -webkit-border-radius: 4px 4px 4px 4px;
+                    border-radius: 4px 4px 4px 4px;
+                    overflow: hidden;
+                }
+
+                    #tabs-left .ui-tabs-nav li a {
+                        float: left;
+                        width: 100%;
+                        text-align: left;
+                    }
+
+            #tabs-left .ui-tabs-panel {
+                height: 40em;
+            }
+
+            #tabs-3 {
+            position: relative;
+            padding-left: 10em;
+        }
+
+            #tabs-3 .ui-tabs-nav {
+                position: absolute;
+                left: 0.25em;
+                top: 0.25em;
+                bottom: 0.25em;
+                width: 9em;
+                padding: 0.2em 0.2em 0.2em 0.2em;
+            }
+
+                #tabs-3 .ui-tabs-nav li {
+                    right: 1px;
+                    width: 100%;
+                    border-bottom-width: 1px !important;
+                    -moz-border-radius: 4px 4px 4px 4px;
+                    -webkit-border-radius: 4px 4px 4px 4px;
+                    border-radius: 4px 4px 4px 4px;
+                    overflow: hidden;
+                }
+
+                    #tabs-3 .ui-tabs-nav li a {
+                        float: left;
+                        width: 100%;
+                        text-align: left;
+                    }
+
+            #tabs-3 .ui-tabs-panel {
+                height: 40em;
+            }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            float: left;
+        }
+
+        #datepicker {
+            width: 45%;
+            float: left;
+        }
+
+        #datepicker2 {
+            width: 45%;
+            float: right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="tabs-1">
+        <ul id="nav">
+            <li><a href="#tabs-left">Projects</a></li>
+            <li><a href="#tabs-3">Notifications</a></li>
+            <li><a href="#tabs-4">Data</a></li>
+            <li><a href="#tabs-5">Administrative Tools</a></li>
+        </ul>
+
+        <div id="tabs-left">
+            <ul id="Lnav">
+                <li><a href="#tabs-a">Create Project</a></li>
+                <li><a href="#tabs-b">Input Time</a></li>
+            </ul>
+
+            <div id="tabs-a">
+                <p>
+                    <div class="ui-widget">
+                        <label for="tags">Title:        </label>
+                        <input id="tags">
+                        <br />
+                        <br />
+                        <label for="desc">Description:  </label>
+                        <input id="desc">
+                        <br />
+                        <br />
+                        <label for="usrs">Users:        </label>
+                        <input id="usrs">
+                        <br />
+                        <br />
+                        <label for="amount">Time already spent (15 min increments):</label>
+                        <input type="text" id="amount" readonly style="border:0; background-color: #f5f3e5; font-weight:bold;">
+                        <div id="slider"></div>
+                        <br />
+                        <br />
+                        <label for="prld">Project lead(s):        </label>
+                        <input id="prld">
+                        <br />
+                        <br />
+                        <label for="sdat">Start Date:</label>
+                        <input type="text" id="startDate" readonly style="border:0; background-color: #f5f3e5; width:21.5%">
+                        <label for="edat">End Date:</label>
+                        <input type="text" id="endDate" readonly style="border:0; background-color: #f5f3e5;">
+                        <br />
+                        <fieldset style="border: none">
+                            <div class="container">
+                                <div id="datepicker"></div>
+                                <div id="datepicker2"></div>
+                            </div>
+                        </fieldset>
+                        <br />
+                        <div id="dialog_succ" title="Message">
+                            Success
+                        </div>
+                        <button id="button">Submit</button>
+                    </div>
+                </p>
+            </div>
+
+            <div id="tabs-b">
+                <p>
+                    time stuff
+                </p>
+            </div>
+
+        </div>
+
+        <div id="tabs-3">
+            <ul id="3Lnav">
+                <li><a href="#tabs-3a">Travis M</a></li>
+                <li><a href="#tabs-3b">Todd B</a></li>
+            </ul>
+
+            <div id="tabs-3a">
+                <p>
+                    <div class="ui-widget">
+                        <label for="3tags">Travis M:        </label>
+                        <br />
+                        <label for="3desc">Russell H:  </label>
+                        <br />
+                        <label for="3usrs">Travis M:        </label>
+                        <br />
+                        <label for="3prld">Russell H:        </label>
+                        <br />
+                        <label for="message">Message:</label>
+                        <input id="message" />
+                        <div id="3dialog_succ" title="Message">
+                            Success
+                        </div>
+                        <button id="3button">Submit</button>
+                    </div>
+                </p>
+            </div>
+
+            <div id="tabs-3b">
+                <p>
+                    time stuff
+                </p>
+            </div>
+
+        </div>
+
+        <div id="tabs-4">
+            <div id="report_dialog_succ" title="Message">
+                Generating Report
+            </div>
+            <button id="report_button">Generate Monthly Report</button>
+            <div id="export_dialog_succ" title="Message">
+                Collectiong data for exportation
+            </div>
+            <button id="export_button">Export Data</button>
+        </div>
+
+        <div id="tabs-5">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

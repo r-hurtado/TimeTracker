@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0512E328-8D21-4B80-8B31-53F2A82E287F}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSquared.TimeTracker.Web</RootNamespace>
+    <AssemblyName>GSquared.TimeTracker.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <DesktopBuildPackageLocation>obj\Release\Deploy</DesktopBuildPackageLocation>
+    <DeployIisAppPath>timetracker.gsquaredsoftware.com</DeployIisAppPath>
+    <PrecompileBeforePublish>true</PrecompileBeforePublish>
+    <PublishDatabases>false</PublishDatabases>
+    <EnableUpdateable>true</EnableUpdateable>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Mvc, Version=2012.1.214.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Main\TimeTracker\packages\TelerikMvcExtensions.2012.2.607\lib\net40\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\EditorLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\InvoicingController.cs" />
+    <Compile Include="Controllers\LookupsController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\TimeEntryController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\ProjectDropDownDisplay.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\TimeEntryModel.cs" />
+    <Compile Include="Models\TimeEntryReport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\2012.2.607\Default\editor.png" />
+    <Content Include="Content\2012.2.607\Default\imagebrowser.png" />
+    <Content Include="Content\2012.2.607\Default\loading.gif" />
+    <Content Include="Content\2012.2.607\Default\slider-h.gif" />
+    <Content Include="Content\2012.2.607\Default\slider-v.gif" />
+    <Content Include="Content\2012.2.607\Default\sprite-vertical.png" />
+    <Content Include="Content\2012.2.607\Default\sprite.png" />
+    <Content Include="Content\2012.2.607\Default\treeview-line.png" />
+    <Content Include="Content\2012.2.607\Default\treeview-nodes-rtl.png" />
+    <Content Include="Content\2012.2.607\Default\treeview-nodes.png" />
+    <Content Include="Content\2012.2.607\telerik.default.min.css" />
+    <Content Include="Content\2012.2.607\telerik.windows7.min.css" />
+    <Content Include="Content\2012.2.607\Windows7\editor.png" />
+    <Content Include="Content\2012.2.607\Windows7\imagebrowser.png" />
+    <Content Include="Content\2012.2.607\Windows7\loading.gif" />
+    <Content Include="Content\2012.2.607\Windows7\slider-h.gif" />
+    <Content Include="Content\2012.2.607\Windows7\slider-v.gif" />
+    <Content Include="Content\2012.2.607\Windows7\sprite-vertical.png" />
+    <Content Include="Content\2012.2.607\Windows7\sprite.png" />
+    <Content Include="Content\Images\favorites.ico" />
+    <Content Include="Content\Images\G-SquaredLogo4.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\2012.2.607\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\2012.2.607\jquery.validate.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.all.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.autocomplete.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.calendar.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.chart.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.combobox.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.common.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.datepicker.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.datetimepicker.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.draganddrop.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.editor.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.editing.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.filtering.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.grouping.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.reordering.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.grid.resizing.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.imagebrowser.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.list.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.menu.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.panelbar.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.slider.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.splitter.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.tabstrip.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.textbox.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.timepicker.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.treeview.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.upload.min.js" />
+    <Content Include="Scripts\2012.2.607\telerik.window.min.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\time.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.de-DE.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSquared.TimeTracker.BL\GSquared.TimeTracker.BL.csproj">
+      <Project>{7F34514E-3458-4B01-BE84-9779543EDAB0}</Project>
+      <Name>GSquared.TimeTracker.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSquared.TimeTracker.Model\GSquared.TimeTracker.Model.csproj">
+      <Project>{F55844B0-67EA-4025-879A-84083724B825}</Project>
+      <Name>GSquared.TimeTracker.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lookups\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\BillingTerms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Client\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeEntry\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\BillingCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Client.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeEntry\WeeklyRevenueReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Project\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Project.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\BillingCycles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Invoicing\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Production FTP.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56922</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56922/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

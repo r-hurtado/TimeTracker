@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0512E328-8D21-4B80-8B31-53F2A82E287F}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSquared.TimeTracker.Web</RootNamespace>
+    <AssemblyName>GSquared.TimeTracker.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseGlobalApplicationHostFile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <DesktopBuildPackageLocation>obj\Release\Deploy</DesktopBuildPackageLocation>
+    <DeployIisAppPath>timetracker.gsquaredsoftware.com</DeployIisAppPath>
+    <PrecompileBeforePublish>true</PrecompileBeforePublish>
+    <PublishDatabases>false</PublishDatabases>
+    <EnableUpdateable>true</EnableUpdateable>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.4.12182\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\EditorLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\InvoicingController.cs" />
+    <Compile Include="Controllers\LookupsController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\TimeEntryController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\JqGridParametersModel.cs" />
+    <Compile Include="Models\JqJsonModel.cs" />
+    <Compile Include="Models\ProjectDropDownDisplay.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\TimeEntryModel.cs" />
+    <Compile Include="Models\TimeEntryReport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\g-squared\images\animated-overlay.gif" />
+    <Content Include="Content\g-squared\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\g-squared\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\g-squared\images\ui-bg_glass_10_dfeffc_1x400.png" />
+    <Content Include="Content\g-squared\images\ui-bg_glass_75_93cefa_1x400.png" />
+    <Content Include="Content\g-squared\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\g-squared\images\ui-bg_gloss-wave_20_0c2164_500x100.png" />
+    <Content Include="Content\g-squared\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\g-squared\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\g-squared\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_6BBD47_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\g-squared\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\g-squared\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\g-squared\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\Images\accept.png" />
+    <Content Include="Content\Images\add.png" />
+    <Content Include="Content\Images\arrow_down.png" />
+    <Content Include="Content\Images\arrow_right.png" />
+    <Content Include="Content\Images\back.png" />
+    <Content Include="Content\Images\delete.png" />
+    <Content Include="Content\Images\edit.png" />
+    <Content Include="Content\Images\favorites.ico" />
+    <Content Include="Content\Images\G-SquaredLogo4.png" />
+    <Content Include="Content\Images\GSquaredLogo_Web.png" />
+    <Content Include="Content\jqgrid\ellipsis-xbl.xml" />
+    <Content Include="Content\jqgrid\ui.jqgrid.css" />
+    <Content Include="Content\jqplot\jquery.jqplot.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\client.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\incomeByWeek.js" />
+    <Content Include="Scripts\itimReport.js" />
+    <Content Include="Scripts\jqPlot\jquery.jqplot.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.barRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.barRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.BezierCurveRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.BezierCurveRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.blockRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.blockRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.bubbleRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.bubbleRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasAxisTickRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasAxisTickRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasOverlay.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasOverlay.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.categoryAxisRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.ciParser.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.ciParser.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.cursor.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.cursor.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.dateAxisRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.donutRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.donutRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.dragable.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.dragable.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.enhancedLegendRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.enhancedLegendRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.funnelRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.funnelRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.highlighter.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.highlighter.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.json2.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.json2.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.logAxisRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.logAxisRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mekkoAxisRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mekkoAxisRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mekkoRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mekkoRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.meterGaugeRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.meterGaugeRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mobile.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.mobile.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.ohlcRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.ohlcRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pieRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pointLabels.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pointLabels.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidAxisRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidAxisRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidGridRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidGridRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidRenderer.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.pyramidRenderer.min.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.trendline.js" />
+    <Content Include="Scripts\jqPlot\plugins\jqplot.trendline.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.combobox.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\jquery.fileDownload.js" />
+    <Content Include="Scripts\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\jquery.jqGrid.src.min.js">
+      <DependentUpon>jquery.jqGrid.src.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\lookups.js" />
+    <Content Include="Scripts\mainMenu.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\monthlyTimesheet.js" />
+    <Content Include="Scripts\project.js" />
+    <Content Include="Scripts\quickbooksTimesheetExport.js" />
+    <Content Include="Scripts\sessionTimeout.js" />
+    <Content Include="Scripts\time.js" />
+    <Content Include="Scripts\timeEntry.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.de-DE.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSquared.TimeTracker.BL\GSquared.TimeTracker.BL.csproj">
+      <Project>{7F34514E-3458-4B01-BE84-9779543EDAB0}</Project>
+      <Name>GSquared.TimeTracker.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSquared.TimeTracker.Model\GSquared.TimeTracker.Model.csproj">
+      <Project>{F55844B0-67EA-4025-879A-84083724B825}</Project>
+      <Name>GSquared.TimeTracker.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lookups\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\BillingTerms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Client\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeEntry\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Client.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Project\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Project.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\BillingCycles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Invoicing\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\gsquared-timetracker - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gsquared-timetracker - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\gsquared-timetracker.pubxml" />
+    <None Include="Properties\PublishProfiles\Production FTP.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Scripts\jquery.jqGrid.src.min.js.map">
+      <DependentUpon>jquery.jqGrid.src.js</DependentUpon>
+    </Content>
+    <Content Include="Views\Reports\IncomeByWeek.cshtml" />
+    <Content Include="Views\Invoicing\ItimeReport.cshtml" />
+    <Content Include="Views\Invoicing\QuickbooksTimesheetExport.cshtml" />
+    <Content Include="Views\Reports\MonthlyTimesheet.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56922</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56925/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+</Project>

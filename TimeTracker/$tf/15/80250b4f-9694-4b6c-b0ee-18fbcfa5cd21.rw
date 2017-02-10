@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    Welcome to the G-Squared Software, LLC Time Tracker.
+</p>

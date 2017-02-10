@@ -1,0 +1,11 @@
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\TimeTracker.exe.config
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\TimeTracker.exe
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\TimeTracker.pdb
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\Microsoft.SqlServer.Smo.dll
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\obj\Debug\TimeTracker.csprojResolveAssemblyReference.cache
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\obj\Debug\TimeTracker.exe
+R:\School Stuff\CST\SP\TimeTracker\TimeTracker\obj\Debug\TimeTracker.pdb

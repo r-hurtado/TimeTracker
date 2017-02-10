@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Manage Lookups";
+}
+
+<h2>Manage Lookups</h2>
+<div id="GridErrors"></div>
+
+@{
+    Html.Telerik().PanelBar()
+        .Name("pnlMain")
+        .Items(pnl =>
+        {
+            pnl.Add()
+                .Text("Billing Terms")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        @{
+                            Html.Telerik().Grid<TimeTracker_Entities.BillingTerm>()
+                                .Name("grdBillingTerms")
+                                .ToolBar(tb => tb.Insert().ButtonType(GridButtonType.Image))
+                                .DataKeys(keys => keys.Add(m => m.BillingTermsId))
+                                .DataBinding(db => 
+                                    {
+                                        db.Ajax()
+                                            .Select("_GetBillingTerms", "Lookups")
+                                            .Insert("_AddBillingTerm", "Lookups")
+                                            .Update("_UpdateBillingTerm", "Lookups")
+                                            .Delete("_DeleteBillingTerm", "Lookups");
+                                    })
+                                .Columns(col =>
+                                {
+                                    col.Bound(m => m.BillingTermsId)
+                                        .Hidden();
+                                    
+                                    col.Bound(m => m.BillingTermsDescription);
+                                    col.Bound(m => m.NumberOfDaysToPay);
+                                    col.Command(cmd =>
+                                        {
+                                            cmd.Edit()
+                                                .ButtonType(GridButtonType.Image);
+                                            cmd.Delete()
+                                                .ButtonType(GridButtonType.Image);
+                                        });
+                                })
+                                .Editable(edit => edit.Enabled(true).Mode(GridEditMode.InLine))
+                                .ClientEvents(evnt => evnt.OnError("LookupManager_OnError"))
+                                .HtmlAttributes(new {style = "width: 500px;"})
+                                .Render();
+                        }
+                        <br />
+                    </text>
+                );
+        })
+        .Render();
+}
+
+@section HeadSection{
+    <script type="text/javascript">
+        // Handle any errors
+        function LookupManager_OnError(e) {
+            var request = e.XMLHttpRequest;
+
+            e.preventDefault();
+
+            // Create a Telerik Window to display the error
+            var windowElement = $.telerik.window.create({
+                title: "An error has occurred",
+                html: "<div class='errorMessage'>" + request.responseText + "</div>",
+                modal: true,
+                resizable: false,
+                draggable: true,
+                scrollable: false
+            });
+
+            // Display the error
+            $('GridErrors').append(windowElement);
+            windowElement.data('tWindow').center().show();
+        }
+    </script>
+}
+

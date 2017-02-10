@@ -1,0 +1,2 @@
+﻿@using GSquared.TimeTracker.Web.Models
+@Html.DropDownList("ProjectId", new SelectList((IEnumerable<ProjectDropDownDisplay>)ViewBag.Projects, "ProjectId", "DisplayText"))

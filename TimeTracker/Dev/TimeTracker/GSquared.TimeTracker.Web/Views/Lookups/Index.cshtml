@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Manage Lookups";
+}
+
+<script src="@Url.Content("~/Scripts/lookups.js")"></script>
+
+<h2>Manage Lookups</h2>
+<button id="btnAddBillingTerm" class="addButton">Add Billing Term</button>
+<table id="grdBillingTerms"></table>
+
+<script type="text/javascript">
+    $(function() {
+        lookupsHelper.init();
+    });
+</script>

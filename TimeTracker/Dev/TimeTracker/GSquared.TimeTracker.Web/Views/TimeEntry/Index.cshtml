@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Manage Time Entries";
+}
+
+<script src="@Url.Content("~/Scripts/timeEntry.js")"></script>
+
+<h2>Manage Time Entries</h2>
+
+<div id="GridErrors"></div>
+<button id="btnAddTimeEntry" class="addButton">Add Entry</button>
+<table id="timeEntries"></table>
+<div id="timeEntriesMap"></div>
+
+
+<script type="text/javascript">
+    $(function (){
+        timeEntryHelper.init();
+    });
+</script>
+
+<div style="margin-top: 10px;">
+    @Html.ActionLink("View Report", "IncomeByWeek", "Reports")
+</div>

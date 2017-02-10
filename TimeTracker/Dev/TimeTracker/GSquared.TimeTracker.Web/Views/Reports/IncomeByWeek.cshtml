@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Income By Week";
+}
+
+<link href="@Url.Content("~/Content/jqplot/jquery.jqplot.css")" rel="stylesheet" />
+
+<script src="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.pointLabels.min.js")"></script>
+
+<script src="@Url.Content("~/Scripts/incomeByWeek.js")"></script>
+
+<h2>Income By Week</h2>
+
+<div id="reportChart" style="width: 800px;"></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        incomeByWeekHelper.init();
+    })
+</script>

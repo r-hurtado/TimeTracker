@@ -1,0 +1,8 @@
+@model DateTime?
+
+@(Html.Telerik().TimePicker()
+        .Name(ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty))
+        .ShowButton(false)
+        .HtmlAttributes(new { id = ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty) + "_wrapper" })
+        .InputHtmlAttributes(new { style = "width: 50px; text-align: right;" })
+)

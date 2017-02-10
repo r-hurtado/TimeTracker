@@ -1,0 +1,73 @@
+@using System.Web.Optimization
+<meta name="WebsiteSpark" content="X7Mz8YDbgn" />
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favorites.ico")" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/jqgrid/ui.jqgrid.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/g-squared/jquery-ui-1.10.3.custom.css")" rel="stylesheet"/>
+    
+    <script src="@Url.Content("~/Scripts/jquery-1.9.0.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.custom.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.custom.combobox.js")"></script>
+    <script src="@Url.Content("~/Scripts/i18n/grid.locale-en.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jqGrid.src.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/date.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/time.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.fileDownload.js")" type="text/javascript"></script>
+</head>
+@RenderSection("HeadSection", required: false)
+    <body>
+        <div class="page">
+            <div id="header" class="ui-widget-header">
+                <div id="title">
+                    <a href="http://www.gsquaredsoftware.com" style="text-decoration: none;">
+                        <img src="@Url.Content("~/Content/Images/GSquaredLogo_Web.png")" alt="G-Squared Logo" width="57" height="69" style="vertical-align: top;margin-top: 45px;" />
+                    </a>
+                    <span class="titleText">G-Squared Time Tracker</span><span id="logindisplay">
+                                                                             @Html.Partial("_LogOnPartial")
+                                                                         </span>
+                </div>
+                <div id="menucontainer">
+                    @Html.Partial("_MainMenu")
+                </div>
+            </div>
+            <div id="main">
+                @RenderBody()
+            </div>
+            <div id="footer" class="ui-widget-header">
+            </div>
+        </div>
+        <script src="@Url.Content("~/Scripts/mainMenu.js")"></script>
+        <script src="@Url.Content("~/Scripts/sessionTimeout.js")"></script>
+    </body>
+    <script type="text/javascript">
+        // Create a function for getting the root path
+        // Don't move this function - It needs to execute here    
+        // so that the root url is available to other js files
+        $.url = function (url) {
+            url = url || '';
+            var path = '@Request.ApplicationPath';
+            if (path != '/') path = path + '/';
+            return path + url;
+        }
+    </script>
+    
+    @{
+        if (Request.IsAuthenticated)
+        {
+            <div id="sessionTimeoutWarning" title="Session About to Expire">
+                <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Your session is about to expire.  Click on the 'OK' button below to continue your session.</p>
+            </div>
+            
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    sessionHelper.init();
+                });
+            </script>
+        }
+    }
+</html>

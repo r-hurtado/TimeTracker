@@ -1,0 +1,197 @@
+﻿@using GSquared.TimeTracker.Web.Models
+@{
+    ViewBag.Title = "Manage Time Entries";
+}
+
+<h2>Manage Time Entries</h2>
+
+<div id="GridErrors"></div>
+
+@{
+    Html.Telerik().PanelBar()
+        .Name("pnlMain")
+        .Items(pnl =>
+        {
+            pnl.Add()
+                .Text("Time Entries")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        @{
+                            Html.Telerik().Grid<TimeEntryModel>()
+                                .Name("grdTimeEntries")
+                                .ToolBar(tb => tb.Insert().ButtonType(GridButtonType.Image))
+                                .DataKeys(keys => keys.Add(m => m.TimeEntryId))
+                                .DataBinding(db =>
+                                    {
+                                        db.Ajax()
+                                            .Select("GetTimeEntries", "TimeEntry")
+                                            .Insert("AddTimeEntry", "TimeEntry")
+                                            .Update("UpdateTimeEntry", "TimeEntry")
+                                            .Delete("DeleteTimeEntry", "TimeEntry");
+                                    })
+                                .Columns(col =>
+                                {
+                                    col.Bound(m => m.TimeEntryId)
+                                        .Hidden();
+
+                                    col.Bound(m => m.ProjectId)
+                                        .Title("Project")
+                                        .ClientTemplate("<#= ProjectDisplayName #>")
+                                        .Width(200);
+
+                                    col.Bound(m => m.Description)
+                                        .Title("Details")
+                                        .Width(200);
+
+                                    col.Bound(m => m.DateWorked)
+                                        .HtmlAttributes(new { style = "text-align: right;" })
+                                        .Width(100);
+
+                                    col.Bound(m => m.FromTime)
+                                        .HtmlAttributes(new { style = "text-align: right;" })
+                                        .Filterable(false)
+                                        .Groupable(false)
+                                        .Width(75);
+
+                                    col.Bound(m => m.ToTime)
+                                        .HtmlAttributes(new { style = "text-align: right;" })
+                                        .Filterable(false)
+                                        .Groupable(false)
+                                        .Width(75);
+
+                                    col.Bound(m => m.TotalTime)
+                                        .Aggregate(agg => agg.Sum())
+                                        .ClientTemplate("<div style='text-align:right; width: 100%;'><#= TotalTime #></div>")
+                                        .ClientFooterTemplate("<div style='text-align:right;'>Total: <#= Sum #></div>")
+                                        .ClientGroupFooterTemplate("<div style='text-align:right;'>Grp. Total: <#= Sum #></div>")
+                                        .Filterable(false)
+                                        .Groupable(false)
+                                        .Width(75);
+
+                                    col.Bound(m => m.IsBillable)
+                                        .Title("Billable?")
+                                        .HtmlAttributes(new { style = "text-align: center;" })
+                                        .ClientTemplate("<input type='checkbox' disabled checked='<#= IsBillable #>' />")
+                                        .Width(50);
+
+                                    col.Command(cmd =>
+                                        {
+                                            cmd.Edit()
+                                                .ButtonType(GridButtonType.Image);
+                                            cmd.Delete()
+                                                .ButtonType(GridButtonType.Image);
+                                        })
+                                        .Width(65);
+                                })
+                                .Editable(edit => edit.Enabled(true).Mode(GridEditMode.InLine))
+                                .ClientEvents(evnt =>
+                                    evnt.OnError("TimeEntryManager_OnError")
+                                        .OnEdit("TimeEntryManager_OnEdit")
+                                        .OnSave("TimeEntryManager_OnSave")
+                                )
+                                .Filterable(f => f.Enabled(true).Filters(fil => fil.Add(m => m.DateWorked.Month == DateTime.Now.Month)))
+                                .Sortable()
+                                .Groupable()
+                                .Pageable(pg => pg.Enabled(true).PageSize(20))
+                                .Scrollable(sc => sc.Enabled(true).Height(300))
+                                .Resizable(rs => rs.Columns(true))
+                                .Render();
+                        }
+                    </text>
+                );
+        })
+        .Render();
+}
+
+<div style="margin-top: 10px;">
+    @Html.ActionLink("View Report", "WeeklyRevenueReport", "TimeEntry")
+</div>
+
+@section HeadSection{
+    <script type="text/javascript">
+        // Handle any errors
+        function TimeEntryManager_OnError(e) {
+            var request = e.XMLHttpRequest;
+
+            e.preventDefault();
+
+            // Create a Telerik Window to display the error
+            var windowElement = $.telerik.window.create({
+                title: "An error has occurred",
+                html: "<div class='errorMessage'>" + request.responseText + "</div>",
+                modal: true,
+                resizable: false,
+                draggable: true,
+                scrollable: false
+            });
+
+            // Display the error
+            $('GridErrors').append(windowElement);
+            windowElement.data('tWindow').center().show();
+        }
+
+        // Sets the focus to the first field
+        function TimeEntryManager_OnEdit(e) {
+            var mode = e.mode;
+            var form = e.form;
+            var clientField = $(form).find('#ProjectId-input');
+
+            if (mode == 'insert') {
+                // Set the focus to the first field
+                clientField.focus();
+            }
+
+            // Set up the From and To Times to update the Total Time
+            $(form).find('#FromTime').blur(function () {
+                CalculateTotal(form);
+            });
+
+            $(form).find('#ToTime').blur(function () {
+                CalculateTotal(form);
+            });
+        }
+
+        function TimeEntryManager_OnSave() {
+            // Set the focus on the "Add" button
+            $('.t-grid-add:first').focus();
+        }
+
+        // Calculate the total time worked
+        function CalculateTotal(form) {
+            var totalField = $(form).find("#TotalTime");
+            var fromTime = $(form).find("#FromTime").val();
+            var toTime = $(form).find("#ToTime").val();
+            
+
+            if (fromTime == '' || toTime == '') {
+                totalField.val(0);
+            }
+            else {
+
+                var span = new TimeSpan(Date.parse(toTime) - Date.parse(fromTime));
+                var roundedTime = span.getHours() + RoundToQuarterHour(span.getMinutes());
+                totalField.val(roundedTime);
+            }
+        }
+
+        // Rounds the number to the nearest quarter hour
+        function RoundToQuarterHour(minutes) {
+            if (minutes <= 7) {
+                return .00;
+            }
+            else if (minutes <= 22) {
+                return .25;
+            }
+            else if (minutes <= 37) {
+                return .5;
+            }
+            else if (minutes <= 52) {
+                return .75;
+            }
+            else {
+                return 1;
+            }
+        }
+    </script>
+}

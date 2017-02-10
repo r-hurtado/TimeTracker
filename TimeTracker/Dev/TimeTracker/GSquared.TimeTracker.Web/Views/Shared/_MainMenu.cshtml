@@ -1,0 +1,59 @@
+﻿<div id="mainMenuContainer">
+    @{
+        if (Request.IsAuthenticated)
+        {
+            <table>
+                <thead>
+                    <tr id="mainMenu" class="ui-state-default">
+                        <td>
+                            @Html.ActionLink("Enter Time", "Index", "TimeEntry")
+                        </td>
+                        <td>
+                            <a href="#">Setup</a>
+                            <ul>
+                                <li>@Html.ActionLink("Manage Clients", "Index", "Client")</li>
+                                <li>@Html.ActionLink("Manage Projects", "Index", "Project")</li>
+                                @{
+                                    if (User.Identity.Name.ToLower().Equals("dboss"))
+                                    {
+                                            <li>@Html.ActionLink("Manage Lookups", "Index", "Lookups")</li>
+                                    }
+                                 }
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="#">Reports</a>
+                            <ul>
+                                <li>@Html.ActionLink("Weekly Time Report", "IncomeByWeek", "Reports")</li>
+                                <li>@Html.ActionLink("ODOT ITIM Report", "ItimeReport", "Invoicing")</li>
+                                <li>@Html.ActionLink("Monthly Timesheet", "MonthlyTimesheet", "Reports")</li>
+                                @{
+                                    if (User.IsInRole("Administrator"))
+                                    {
+                                        <li>@Html.ActionLink("QuickBooks Timesheet Export", "QuickbooksTimesheetExport", "Invoicing")</li>
+                                    }
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="#">Account</a>
+                            <ul>
+                                <li>@Html.ActionLink("Change Password", "ChangePassword", "Account")</li>
+                                <li>@Html.ActionLink("Edit Profile", "EditProfile", "Account")</li>
+                            </ul>                            
+                        </td>
+                        <td>
+                            @Html.ActionLink("Log Off", "LogOff", "Account")
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        }
+    }
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        menuHelper.init();
+    });
+</script>

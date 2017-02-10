@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSquared.TimeTracker.BL", "GSquared.TimeTracker.BL\GSquared.TimeTracker.BL.csproj", "{7F34514E-3458-4B01-BE84-9779543EDAB0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GSquared.TimeTracker.Database", "GSquared.TimeTracker.Database\GSquared.TimeTracker.Database.sqlproj", "{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSquared.TimeTracker.Model", "GSquared.TimeTracker.Model\GSquared.TimeTracker.Model.csproj", "{F55844B0-67EA-4025-879A-84083724B825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSquared.TimeTracker.Repository", "GSquared.TimeTracker.Repository\GSquared.TimeTracker.Repository.csproj", "{1CE235C9-6042-45B0-A584-DC3D2ED4D992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSquared.TimeTracker.Web", "GSquared.TimeTracker.Web\GSquared.TimeTracker.Web.csproj", "{0512E328-8D21-4B80-8B31-53F2A82E287F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://gsquaredsoftware.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = GSquared.TimeTracker.BL\\GSquared.TimeTracker.BL.csproj
+		SccProjectName1 = GSquared.TimeTracker.BL
+		SccLocalPath1 = GSquared.TimeTracker.BL
+		SccProjectUniqueName2 = GSquared.TimeTracker.Database\\GSquared.TimeTracker.Database.sqlproj
+		SccProjectName2 = GSquared.TimeTracker.Database
+		SccLocalPath2 = GSquared.TimeTracker.Database
+		SccProjectUniqueName3 = GSquared.TimeTracker.Model\\GSquared.TimeTracker.Model.csproj
+		SccProjectName3 = GSquared.TimeTracker.Model
+		SccLocalPath3 = GSquared.TimeTracker.Model
+		SccProjectUniqueName4 = GSquared.TimeTracker.Repository\\GSquared.TimeTracker.Repository.csproj
+		SccProjectName4 = GSquared.TimeTracker.Repository
+		SccLocalPath4 = GSquared.TimeTracker.Repository
+		SccProjectUniqueName5 = GSquared.TimeTracker.Web\\GSquared.TimeTracker.Web.csproj
+		SccProjectName5 = GSquared.TimeTracker.Web
+		SccLocalPath5 = GSquared.TimeTracker.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Debug|x86.ActiveCfg = Debug|x86
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Debug|x86.Build.0 = Debug|x86
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Release|x86.ActiveCfg = Release|x86
+		{7F34514E-3458-4B01-BE84-9779543EDAB0}.Release|x86.Build.0 = Release|x86
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1AA85A1A-76E0-4BBA-AD48-D1108AD6AD3F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55844B0-67EA-4025-879A-84083724B825}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE235C9-6042-45B0-A584-DC3D2ED4D992}.Release|x86.ActiveCfg = Release|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0512E328-8D21-4B80-8B31-53F2A82E287F}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

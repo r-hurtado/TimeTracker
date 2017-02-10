@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "Invoicing";
+}
+
+<h2>Invoicing</h2>
+
+@{
+    Html.Telerik().PanelBar()
+        .Name("pnlMain")
+        .Items(pnl =>
+        {
+            pnl.Add()
+                .Text("Quickbooks Invoice Entries")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        <table style="height:30px; text-align:left;vertical-align:middle;width:100%;">
+                            <tr>
+                                <td style="width: 525px;">
+                                        <b>Quickbooks Project:</b><br />
+                                    @{
+                                        Html.Telerik().ComboBox()
+                                            .Name("QuickbooksProject")
+                                            .BindTo((SelectList)ViewBag.QuickbooksProjects)
+                                            .HtmlAttributes(new { style = "width: 500px;" })
+                                            .AutoFill(true)
+                                            .Render();
+                                    }
+                                </td>
+                                <td>
+                              
+                                        <b>From Date:</b><br />
+                                    @{
+                                        Html.Telerik().DatePicker()
+                                            .Name("FromDate")
+                                            .Value(Model > DateTime.MinValue? Model : DateTime.Today)
+                                            .InputHtmlAttributes(new { style = "text-align: right" })
+                                            .Render();
+                                    }      
+                                </td>
+                                <td>
+                                        <b>To Date:</b><br />
+
+                                    @{
+                                        Html.Telerik().DatePicker()
+                                            .Name("ToDate")
+                                            .Value(Model > DateTime.MinValue? Model : DateTime.Today)
+                                            .InputHtmlAttributes(new { style = "text-align: right" })
+                                            .Render();
+                                    }
+                                </td>
+                                <td>
+                                    <b>Use Project Name in Description:</b>
+                                    <input type="checkbox" id="UseProjectName" />
+                                </td>
+                                <td>
+                                    <b>Invoice #:</b>
+                                    <input type="text" id="InvoiceNumber"  style="width: 75px;" />
+                                </td>
+                                <td>
+                                    <button id="btnExportInvoiceData" onclick="ExportInvoiceData();">Export Data</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </text>
+                );
+            pnl.Add()
+                .Text("Quickbooks Time Entries")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        <table style="height:30px; text-align:left;vertical-align:middle;width:100%;">
+                            <tr>
+                                <td>
+                              
+                                        <b>From Date:</b><br />
+                                    @{
+                                        Html.Telerik().DatePicker()
+                                            .Name("TimeEntryFromDate")
+                                            .Value(Model > DateTime.MinValue ? Model : DateTime.Today)
+                                            .InputHtmlAttributes(new { style = "text-align: right" })
+                                            .Render();
+                                    }      
+                                </td>
+                                <td>
+                                        <b>To Date:</b><br />
+
+                                    @{
+                                        Html.Telerik().DatePicker()
+                                            .Name("TimeEntryToDate")
+                                            .Value(Model > DateTime.MinValue ? Model : DateTime.Today)
+                                            .InputHtmlAttributes(new { style = "text-align: right" })
+                                            .Render();
+                                    }
+                                </td>
+                                <td>
+                                    <button id="btnExportTimesheetData" onclick="ExportTimesheetData();">Export Data</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </text>
+                );
+            pnl.Add()
+                .Text("ITIM")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        <table style="width: 100%">
+                            <tr>
+                                <td style="width: 525px;">
+                                    <b>Client:</b><br />
+                                    @(Html.Telerik().ComboBox()
+                                            .Name("ClientID")
+                                            .HtmlAttributes(new { style = "width: 500px;" })
+                                            .BindTo(new SelectList((System.Collections.IEnumerable)ViewBag.Clients, "ClientId", "ClientName"))
+                                            .AutoFill(true)
+                                    )
+                                </td>
+                                <td>
+                                    <b>Month:</b><br />
+                                    <select id="Month">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <b>Year:</b><br />
+                                    <select id="Year">
+                                        <option>2010</option>
+                                        <option>2011</option>
+                                        <option selected>2012</option>
+                                        <option>2013</option>
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                        <option>2017</option>
+                                        <option>2018</option>
+                                        <option>2019</option>
+                                        <option>2020</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button id="btnGetITIMData" onclick="GetITIMData();">Get ITIM Data</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <textarea id="itimData" cols="80" rows="20"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </text>
+                );
+        })
+        .Render();
+}
+
+@section HeadSection{
+    <script type="text/javascript">
+        function ExportInvoiceData() {
+            var url = "Invoicing/_GetQuickbooksDataExport?quickbooksProject=" + $("#QuickbooksProject").val() + "&fromDate=" + $("#FromDate").val() + "&toDate=" + $("#ToDate").val() + "&useProjectName=" + ($("#UseProjectName").attr("checked") == "checked") + "&nextInvoice=" + $("#InvoiceNumber").val();
+            window.location = url;
+        }
+        
+        function ExportTimesheetData() {
+            var url = "Invoicing/_GetQuickbooksTimesheetExport?fromDate=" + $("#TimeEntryFromDate").val() + "&toDate=" + $("#TimeEntryToDate").val();
+            window.location = url;
+        }
+    
+        function GetITIMData() {
+            var url = "Invoicing/_GetITIMData";
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    clientId: $("#ClientID").val(),
+                    month: $("#Month").val(),
+                    year: $("#Year").val()
+                },
+                success: function (data) {
+                    $("#itimData").val(data);
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Itime Report";
+}
+
+<script src="@Url.Content("~/Scripts/itimReport.js")"></script>
+
+<h2>Itime Report</h2>
+
+<div style="float:left;clear:none">
+    <b>Client:</b><br />
+    <select id="ClientId"></select>
+</div>
+<div style="float:left;clear:none;margin-left:10px;">
+    <b>Month:</b><br />
+    <select id="ItimeMonth">
+        @{
+            for (int i = 1; i <= 12; i++)
+            {
+                <option@(i == DateTime.Now.Month ? " selected" : "")>@i</option>
+            }
+        }
+    </select>
+</div>
+<div style="float:left;clear:none;margin-left:10px;">
+    <b>Year:</b><br />
+    <select id="ItimeYear">
+        @{
+            for (int i = DateTime.Now.Year - 2; i <= DateTime.Now.Year; i++)
+            {
+                <option@(i == DateTime.Now.Year ? " selected" : "")>@i</option>
+            }
+        }
+    </select>
+</div>
+<div style="float:left;clear:none;padding-top:0.9em;margin-left:10px;">
+    <button id="btnGetItimeData">Get ITIM Data</button>
+</div>
+<div style="clear:both;">
+    <textarea id="itimData" cols="80" rows="20"></textarea>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        itimHelper.init();
+    });
+</script>

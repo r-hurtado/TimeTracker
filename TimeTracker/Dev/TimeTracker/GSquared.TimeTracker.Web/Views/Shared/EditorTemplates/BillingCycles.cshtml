@@ -1,0 +1,2 @@
+﻿@using GSquared.TimeTracker.Model.Entities
+@Html.DropDownList("BillingCycleId", new SelectList((IEnumerable<BillingCycle>)ViewBag.BillingCycles, "BillingCycleId", "BillingCycleDescription"))

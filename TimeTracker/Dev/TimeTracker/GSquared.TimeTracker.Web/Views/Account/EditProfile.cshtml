@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization
+@model GSquared.TimeTracker.Model.Entities.UserProfile
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserProfile</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.ExportHoursToQuickbooks)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MiddleInitial)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MiddleInitial)
+            @Html.ValidationMessageFor(model => model.MiddleInitial)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+@section HeadSection {
+    @Scripts.Render("~/bundles/jqueryval")
+}

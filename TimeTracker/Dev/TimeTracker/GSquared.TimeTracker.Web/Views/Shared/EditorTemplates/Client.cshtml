@@ -1,0 +1,2 @@
+﻿@using GSquared.TimeTracker.Model.Entities
+@Html.DropDownList("ClientId", new SelectList((IEnumerable<Client>)ViewBag.Clients, "ClientId", "ClientName"))

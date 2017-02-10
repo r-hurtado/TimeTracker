@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Monthly Time Report";
+}
+
+<script src="@Url.Content("~/Scripts/monthlyTimesheet.js")"></script>
+
+<h2>Monthly Time Report</h2>
+
+@using (Html.BeginForm())
+{
+    <div style="float: left; clear: none; margin-left: 10px;">
+        <b>From:</b>
+        <br/>
+        <input id="fromDate" name="fromDate" type="Text"/>
+    </div>
+    <div style="float: left; clear: none; margin-left: 10px;">
+        <b>To:</b>
+        <br/>
+        <input id="toDate" name="toDate" type="Text"/>
+    </div>
+    <div style="float: left; clear: none; padding-top: 0.9em; margin-left: 10px;">
+        <button type="submit" id="btnGetMonthlyTimeSheet">Get Monthly Time Sheet</button>
+    </div>
+}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        monthlyTimesheetHelper.init();
+    });
+</script>

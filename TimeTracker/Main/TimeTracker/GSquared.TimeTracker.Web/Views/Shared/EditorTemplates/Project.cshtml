@@ -1,0 +1,6 @@
+﻿@(Html.Telerik().ComboBox()
+        .Name(ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty))
+        .BindTo(new SelectList((System.Collections.IEnumerable)ViewBag.Projects, "ProjectId", "ProjectDisplayName"))
+        .Filterable(f => f.FilterMode(AutoCompleteFilterMode.Contains))
+        .AutoFill(true)
+)

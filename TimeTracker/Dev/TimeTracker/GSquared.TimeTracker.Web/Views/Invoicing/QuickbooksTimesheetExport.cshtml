@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "QuickBooks Timesheet Export";
+}
+
+<script src="@Url.Content("~/Scripts/quickbooksTimesheetExport.js")"></script>
+
+<h2>QuickBooks Timesheet Export</h2>
+
+<div style="float:left; padding-right: 10px;">
+    <b>From Date:</b><br />
+    <input id="FromDate" class="ui-state-default" style="height:2em;margin-top:3px;"/>
+</div>
+<div style="float:left; padding-right: 10px;">
+    <b>To Date:</b><br />
+    <input id="ToDate" class="ui-state-default" style="height:2em;margin-top:3px;"/></div>
+<div style="float:left;">
+    <br/>
+    <button id="btnExportTimesheetData">Export Data</button>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+    $(function() {
+        quickbooksTimesheetExportHelper.init();
+    });
+</script>

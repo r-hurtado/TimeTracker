@@ -1,0 +1,40 @@
+﻿@using GSquared.TimeTracker.Web.Models
+@{
+    ViewBag.Title = "Time Tracker Report";
+}
+
+<h2>Time Tracker Report</h2>
+
+@(
+ Html.Telerik().Chart<TimeEntryReport>()
+        .Name("timeReport")
+        .Title(title => title
+            .Text("Hours and Revenue by Week")
+            .Visible(true)
+        )
+        .Legend(legend => legend
+            .Position(ChartLegendPosition.Bottom)
+            .Visible(true)
+        )
+        .SeriesDefaults(series =>
+        {
+            series.Column().Stack(false).Labels(lbl => lbl.Format("{0:c}").Position(ChartBarLabelsPosition.OutsideEnd).Visible(true));
+            series.Line().Color("Black").Labels(false);
+        })
+        .Series(series =>
+        {
+            series.Column(d => d.TotalRevenue).Name("Actual Revenue");
+            series.Column(d => d.TotalHours).Name("Total Hours").Labels(lbl => lbl.Format("{0:#.##}"));
+            series.Line(d => d.RevenueGoal).Name("Revenue Goal");
+        })
+        .CategoryAxis(axis => axis
+            .Categories(d => d.Week)
+        )
+        .HtmlAttributes(new { style = "width: 800px; height: 400px;" })
+        .DataBinding(db => db.Ajax().Select("_SelectWeeklyRevenueReportData", "TimeEntry", new { fromDate = DateTime.Now.AddDays(-1 * (28 + ((int)DateTime.Now.DayOfWeek))), toDate = DateTime.Now }))
+)
+
+<div>
+    <h2>Total Revenue this Month: @string.Format("{0:c}", ViewData["RevenueCurrentMonthToDate"])</h2>
+</div>
+    

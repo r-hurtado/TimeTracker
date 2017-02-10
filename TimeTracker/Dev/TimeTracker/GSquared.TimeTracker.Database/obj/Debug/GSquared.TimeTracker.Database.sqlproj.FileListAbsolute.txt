@@ -1,0 +1,7 @@
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\sql\debug\TimeTracker_DEVL.dacpac
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\Model.xml
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\refactor.xml
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\postdeploy.sql
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\predeploy.sql
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\TimeTracker_Database.dll
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Database\obj\Debug\TimeTracker_Database.pdb

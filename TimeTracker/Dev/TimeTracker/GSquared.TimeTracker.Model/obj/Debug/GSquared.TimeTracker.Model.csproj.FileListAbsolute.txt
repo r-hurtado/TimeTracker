@@ -1,0 +1,7 @@
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\bin\Debug\GSquared.TimeTracker.Model.dll.config
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\bin\Debug\GSquared.TimeTracker.Model.dll
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\bin\Debug\GSquared.TimeTracker.Model.pdb
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\bin\Debug\EntityFramework.dll
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\bin\Debug\EntityFramework.xml
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\obj\Debug\GSquared.TimeTracker.Model.dll
+R:\School Stuff\CST\SP\TimeTracker\Dev\TimeTracker\GSquared.TimeTracker.Model\obj\Debug\GSquared.TimeTracker.Model.pdb

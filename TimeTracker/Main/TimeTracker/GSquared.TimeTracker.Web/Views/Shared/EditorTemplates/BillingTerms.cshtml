@@ -1,0 +1,4 @@
+﻿@(Html.Telerik().ComboBox()
+        .Name(ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty))
+        .BindTo(new SelectList((System.Collections.IEnumerable)ViewBag.BillingTerms, "BillingTermsId", "BillingTermsDescription"))
+)

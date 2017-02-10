@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Manage Projects";
+}
+<script src="@Url.Content("~/Scripts/project.js")"></script>
+<h2>Manage Projects</h2>
+<button id="btnAddProject" class="addButton">Add Project</button>
+<div id="GridErrors"></div>
+<table id="projects"></table>
+<div id="projectsMap"></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        projectHelper.init();
+    });
+</script>

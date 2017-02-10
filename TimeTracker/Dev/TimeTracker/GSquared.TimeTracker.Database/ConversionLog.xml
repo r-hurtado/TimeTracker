@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='_ConversionReport_Files/ConversionReport.xslt'?>
+<UpgradeLog>
+  <Properties>
+    <Property Name="Project" Value="TimeTracker_Database" />
+    <Property Name="Project File" Value="D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.dbproj" />
+    <Property Name="Date" Value="Wednesday, April 25, 2012" />
+    <Property Name="Time" Value="2:42 PM" />
+  </Properties>
+  <Event ErrorLevel="0" Project="D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.dbproj" Source="..\TimeTracker_Database.dbproj" Description="The permissions file 'D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\Properties\Database.sqlpermissions' was converted to Transact-SQL in the file 'D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\Permissions.sql'." />
+  <Event ErrorLevel="0" Project="D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.dbproj" Source="..\TimeTracker_Database.dbproj" Description="Project was successfully converted: 'D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.dbproj' to 'D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.sqlproj'" />
+  <Event ErrorLevel="3" Project="D:\Development\DeveloperTimeTracker\Development\TimeTracker_Database\TimeTracker_Database.dbproj" Source="..\TimeTracker_Database.dbproj" Description="Converted" />
+</UpgradeLog>

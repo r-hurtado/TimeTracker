@@ -1,0 +1,103 @@
+<meta name="WebsiteSpark" content="X7Mz8YDbgn" />
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favorites.ico")" type="image/x-icon" />
+    @(Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.windows7.css").Combined(true).Compress(true)))
+    <script src="@Url.Content("~/Scripts/date.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/time.js")" type="text/javascript"></script>
+</head>
+@RenderSection("HeadSection", required: false)
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <a href="http://www.gsquaredsoftware.com" style="text-decoration: none;">
+                    <img src="@Url.Content("~/Content/Images/G-SquaredLogo4.png")" alt="G-Squared Logo" width="57" height="69" style="vertical-align: top;" />
+                </a>
+                <span class="titleText">G-Squared Time Tracker</span><span id="logindisplay">
+                    @Html.Partial("_LogOnPartial")
+                </span>
+            </div>
+            <div id="menucontainer">
+                @{
+                    Html.Telerik().Menu()
+                        .Name("MainMenu")
+                        .Orientation(MenuOrientation.Horizontal)
+                        .Items(parentItems =>
+                            {
+                                if (Request.IsAuthenticated)
+                                {
+                                    parentItems.Add()
+                                        .Text("Time Entries")
+                                        .Items(subItems =>
+                                            {
+                                                subItems.Add()
+                                                    .Text("Manage Entries")
+                                                    .Action("Index", "TimeEntry");
+                                                subItems.Add()
+                                                    .Text("Reports")
+                                                    .Items(rpt =>
+                                                    {
+                                                        rpt.Add()
+                                                            .Text("Weekly Revenue")
+                                                            .Action("WeeklyRevenueReport", "TimeEntry");
+
+                                                        rpt.Add()
+                                                            .Text("Invoicing Reports")
+                                                            .Action("Index", "Invoicing");
+                                                    });
+                                            });
+                                        
+                                    parentItems.Add()
+                                        .Text("Administration")
+                                        .Items(subItems =>
+                                            {
+                                                subItems.Add()
+                                                    .Text("Manage Clients")
+                                                    .Action("Index", "Client");
+                                                subItems.Add()
+                                                    .Text("Manage Projects")
+                                                    .Action("Index", "Project");
+                                                subItems.Add()
+                                                    .Text("Manage Lookups")
+                                                    .Action("Index", "Lookups");
+                                            });
+                                }
+                                
+                                parentItems.Add()
+                                    .Text("Account")
+                                    .Items(subItems =>
+                                    {
+                                        if (Request.IsAuthenticated)
+                                        {
+                                            subItems.Add()
+                                                .Text("Log Off")
+                                                .Action("LogOff", "Account");
+
+                                            subItems.Add()
+                                            .Text("Change Password")
+                                            .Action("ChangePassword", "Account");
+                                        }
+                                        else
+                                        {
+                                            subItems.Add()
+                                                .Text("Log On")
+                                                .Action("LogOn", "Account");
+                                        }
+                                    });
+                            })
+                        .Render();
+                }
+            </div>
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+    @(Html.Telerik().ScriptRegistrar().DefaultGroup(group => group.Add("telerik.common.js").Add("telerik.draganddrop.js").Add("telerik.window.js").Add("telerik.datetimepicker.min.js").Combined(true).Compress(true)))</body>
+</html>

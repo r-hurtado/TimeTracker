@@ -1,0 +1,88 @@
+﻿@using GSquared.TimeTracker.Web.Models
+@{
+    ViewBag.Title = "Manage Projects";
+}
+
+<h2>Manage Projects</h2>
+
+<div id="GridErrors"></div>
+
+@{
+    Html.Telerik().PanelBar()
+        .Name("pnlMain")
+        .Items(pnl =>
+        {
+            pnl.Add()
+                .Text("Projects")
+                .Expanded(true)
+                .Content(
+                    @<text>
+                        @{
+                            Html.Telerik().Grid<ProjectModel>()
+                                .Name("grdProjects")
+                                .ToolBar(tb => tb.Insert().ButtonType(GridButtonType.Image))
+                                .DataKeys(keys => keys.Add(m => m.ProjectId))
+                                .DataBinding(db => 
+                                    {
+                                        db.Ajax()
+                                            .Select("_GetProjects", "Project")
+                                            .Insert("_AddProject", "Project")
+                                            .Update("_UpdateProject", "Project")
+                                            .Delete("_DeleteProject", "Project");
+                                    })
+                                .Columns(col =>
+                                {
+                                    col.Bound(m => m.ProjectId)
+                                        .Hidden();                                        
+                                    
+                                    col.Bound(m => m.ClientId)
+                                        .Title("Client")
+                                        .ClientTemplate("<#= ClientName #>");
+                                    col.Bound(m => m.ProjectName);
+                                    col.Bound(m => m.BillingCode);
+                                    col.Bound(m => m.HourlyBillingRate);
+                                    col.Bound(m => m.QuickbooksProjectId);
+                                    col.Bound(m => m.IsActive)
+                                        .ClientTemplate("<input type='Checkbox' <#= IsActive ? 'checked=checked' : ''#> disabled />");
+                                    col.Command(cmd =>
+                                        {
+                                            cmd.Edit()
+                                                .ButtonType(GridButtonType.Image);
+                                            cmd.Delete()
+                                                .ButtonType(GridButtonType.Image);
+                                        });
+                                })
+                                .Editable(edit => edit.Enabled(true).Mode(GridEditMode.InLine))
+                                .ClientEvents(evnt => evnt.OnError("ProjectManager_OnError"))
+                                .Render();
+                        }
+                    </text>
+                );
+        })
+        .Render();
+}
+
+@section HeadSection{
+    <script type="text/javascript">
+        // Handle any errors
+        function ProjectManager_OnError(e) {
+            var request = e.XMLHttpRequest;
+
+            e.preventDefault();
+
+            // Create a Telerik Window to display the error
+            var windowElement = $.telerik.window.create({
+                title: "An error has occurred",
+                html: "<div class='errorMessage'>" + request.responseText + "</div>",
+                modal: true,
+                resizable: false,
+                draggable: true,
+                scrollable: false
+            });
+
+            // Display the error
+            $('GridErrors').append(windowElement);
+            windowElement.data('tWindow').center().show();
+        }
+    </script>
+}

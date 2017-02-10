@@ -1,0 +1,5 @@
+﻿@(Html.Telerik().ComboBox()
+        .Name(ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty))
+        .BindTo(new SelectList((System.Collections.IEnumerable)ViewBag.Clients, "ClientId", "ClientName"))
+        .AutoFill(true)
+)
