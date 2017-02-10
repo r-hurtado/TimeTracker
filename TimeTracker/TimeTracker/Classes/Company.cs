@@ -21,5 +21,10 @@ namespace TimeTracker
         {
 
         }
+
+        public void AddUser()
+        {
+
+        }
     }
 }
