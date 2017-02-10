@@ -71,7 +71,8 @@
             });
             $("#button").on("click", function () {
 				//$("#dialogText").text("prld: " + $("#prld").offset().left + ", desc: " + $("#desc").offset().left  + ", top: " + $("#desc").offset().top);
-                $("#dialog_succ").dialog("open");
+                $("#dialogText").text("Title: " + $("#tags").val() + "\nDescription: " +  $("#desc").val() + "\nUsers: " +  $("#usrs").val() + "\nTime: " +  $("#amount").val() + "\nLeader: " +  $("#prld").val());
+				$("#dialog_succ").dialog("open");
             });
 			
 			$("#loginButton").on("click", function () {
@@ -287,7 +288,7 @@
 			<br />
 			<br />
 			<label for="password" id="passwordLabel">Password:  </label>
-			<input id="password">
+			<input id="password" type="password">
 			<br />
 			<br />
 			<button id="loginButton">Submit</button>

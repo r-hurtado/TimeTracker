@@ -15,7 +15,7 @@ namespace TimeTracker
             try
             {
                 myConnection.Open();
-                Console.WriteLine("Yay!");
+                Console.WriteLine("Successfully connected to SQL Server.\n");
             }
             catch (Exception e)
             {
