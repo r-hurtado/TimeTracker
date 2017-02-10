@@ -32,7 +32,7 @@
             $(function () { $("#Lnav li").height("24%") });
             $(function () { $("#Lnav a").height("92%") });
 
-            $(function () {
+            $(function () {	//New project.
                 $("#slider").slider({
                     value: 0,
                     min: 0,
@@ -43,6 +43,19 @@
                     }
                 });
                 $("#amount").val($("#slider").slider("value") + " hrs");
+            });
+			
+			$(function () {	//Time input
+                $("#timeSlider").slider({
+                    value: 0,
+                    min: 0,
+                    max: 720,
+                    step: 15,
+                    slide: function (event, ui) {
+                        $("#timeAmount").val(ui.value * 1 / 60 + " hrs");
+                    }
+                });
+                $("#timeAmount").val($("#timeSlider").slider("value") + " hrs");
             });
 
             $(function () {
@@ -66,6 +79,7 @@
             });
 			
 			$("#timeButton").on("click", function () {
+				$("#dialogText").text("Project: " + $("#projName").val() + "\nTime: " +  $("#timeAmount").val());
 				$("#dialog_succ").dialog("open");
             });
 			
@@ -237,8 +251,9 @@
 				<input id="projName">
 				<br />
 				<br />
-				<label for="time" id="timeLabel">Time in hours:  </label>
-				<input id="time">
+				<label for="timeAmount">Time in hours (15 min increments):</label>
+                        <input type="text" id="timeAmount" readonly style="border:0; background-color: #f5f3e5; font-weight:bold;">
+                        <fieldset style="border: none"><div id="timeSlider"></div></fieldset>
 				<br />
 				<br />
 				<button id="timeButton">Submit</button>
