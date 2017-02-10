@@ -11,7 +11,6 @@ namespace TimeTracker
     {
         static void Main(string[] args)
         {
-            //3o&jU284*258
             SqlConnection myConnection = new SqlConnection("Data Source = MIECATTS_TOWER\\MIECATT; Initial Catalog = TimeTracker; Integrated Security = True");
             try
             {
@@ -22,6 +21,8 @@ namespace TimeTracker
             {
                 Console.WriteLine(e.ToString());
             }
+
+
         }
     }
 }
