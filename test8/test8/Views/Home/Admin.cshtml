@@ -1,0 +1,22 @@
+﻿@model List<test8.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Administrative Tools";
+}
+<h2>@ViewBag.Title.</h2>
+
+<p>
+    @Html.ActionLink("Register a new user", "Register")
+</p>
+
+<p> User Emails: </p>
+
+<ul>
+    @foreach (test8.Models.ApplicationUser user in Model){
+
+    <li>
+        @Html.DisplayFor(modelItem => user.UserName)
+    </li>
+
+    }
+</ul>

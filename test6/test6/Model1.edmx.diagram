@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ac5075fba50473ea16a64c03f9c7c8a" Name="Diagram1">
+        <EntityTypeShape EntityType="TimeTrackerModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetRoleClaim" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetRole" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetUser" Width="1.5" PointX="10" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.AspNetUserToken" Width="1.5" PointX="2.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.Company" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.Datum" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.Notification" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.Project" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.Report" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.sysdiagram" Width="1.5" PointX="4.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TimeTrackerModel.User" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="TimeTrackerModel.FK_AspNetRoleClaims_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.FK_AspNetUserClaims_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.FK_AspNetUserLogins_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_CompanyProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_CompanyUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_DataNotifications" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_DataProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_DataReports" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_NotifRecipients" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_ProjectLeaders" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_ProjectUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_ReportProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_ReportUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_UserNotifications" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_UserProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="TimeTrackerModel.C_UserReports" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

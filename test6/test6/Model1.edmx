@@ -1,0 +1,1537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TimeTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._CompanyProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_CompanyProjects">
+          <Key>
+            <PropertyRef Name="company" />
+            <PropertyRef Name="project" />
+          </Key>
+          <Property Name="company" Type="int" Nullable="false" />
+          <Property Name="project" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._CompanyUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_CompanyUsers">
+          <Key>
+            <PropertyRef Name="company" />
+            <PropertyRef Name="companyUser" />
+          </Key>
+          <Property Name="company" Type="int" Nullable="false" />
+          <Property Name="companyUser" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._DataNotifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_DataNotifications">
+          <Key>
+            <PropertyRef Name="data" />
+            <PropertyRef Name="notification" />
+          </Key>
+          <Property Name="data" Type="int" Nullable="false" />
+          <Property Name="notification" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._DataProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_DataProjects">
+          <Key>
+            <PropertyRef Name="data" />
+            <PropertyRef Name="project" />
+          </Key>
+          <Property Name="data" Type="int" Nullable="false" />
+          <Property Name="project" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._DataReports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_DataReports">
+          <Key>
+            <PropertyRef Name="data" />
+            <PropertyRef Name="report" />
+          </Key>
+          <Property Name="data" Type="int" Nullable="false" />
+          <Property Name="report" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._NotifRecipients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_NotifRecipients">
+          <Key>
+            <PropertyRef Name="notification" />
+            <PropertyRef Name="recipient" />
+          </Key>
+          <Property Name="notification" Type="int" Nullable="false" />
+          <Property Name="recipient" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._ProjectLeaders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_ProjectLeaders">
+          <Key>
+            <PropertyRef Name="project" />
+            <PropertyRef Name="leader" />
+          </Key>
+          <Property Name="project" Type="int" Nullable="false" />
+          <Property Name="leader" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._ProjectUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_ProjectUsers">
+          <Key>
+            <PropertyRef Name="project" />
+            <PropertyRef Name="projectUser" />
+          </Key>
+          <Property Name="project" Type="int" Nullable="false" />
+          <Property Name="projectUser" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._ReportProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_ReportProjects">
+          <Key>
+            <PropertyRef Name="report" />
+            <PropertyRef Name="project" />
+          </Key>
+          <Property Name="report" Type="int" Nullable="false" />
+          <Property Name="project" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._ReportUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_ReportUsers">
+          <Key>
+            <PropertyRef Name="report" />
+            <PropertyRef Name="reportUser" />
+          </Key>
+          <Property Name="report" Type="int" Nullable="false" />
+          <Property Name="reportUser" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._UserNotifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_UserNotifications">
+          <Key>
+            <PropertyRef Name="notificationUser" />
+            <PropertyRef Name="notification" />
+          </Key>
+          <Property Name="notificationUser" Type="int" Nullable="false" />
+          <Property Name="notification" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._UserProjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_UserProjects">
+          <Key>
+            <PropertyRef Name="projectUser" />
+            <PropertyRef Name="project" />
+          </Key>
+          <Property Name="projectUser" Type="int" Nullable="false" />
+          <Property Name="project" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeTracker.dbo._UserReports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="_UserReports">
+          <Key>
+            <PropertyRef Name="reportUser" />
+            <PropertyRef Name="report" />
+          </Key>
+          <Property Name="reportUser" Type="int" Nullable="false" />
+          <Property Name="report" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoleClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="NormalizedEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="AspNetUserTokens">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="dataUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="sender" Type="int" Nullable="false" />
+          <Property Name="message" Type="text" Nullable="false" />
+          <Property Name="timeSent" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="title" Type="text" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="time" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="startDate" Type="date" Nullable="false" />
+          <Property Name="endDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="dateGenerated" Type="date" Nullable="false" />
+          <Property Name="reportType" Type="bit" />
+          <Property Name="colorType" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="text" Nullable="false" />
+          <Property Name="email" Type="text" Nullable="false" />
+          <Property Name="accountType" Type="bit" Nullable="false" />
+          <Property Name="passWord" Type="text" Nullable="false" />
+          <Property Name="company" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CompanyProjects_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="_CompanyProjects" Type="Self._CompanyProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_CompanyProjects">
+              <PropertyRef Name="company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CompanyProjects_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_CompanyProjects" Type="Self._CompanyProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_CompanyProjects">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CompanyUsers_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="_CompanyUsers" Type="Self._CompanyUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_CompanyUsers">
+              <PropertyRef Name="company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CompanyUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_CompanyUsers" Type="Self._CompanyUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_CompanyUsers">
+              <PropertyRef Name="companyUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataNotifications_Data">
+          <End Role="Data" Type="Self.Data" Multiplicity="1" />
+          <End Role="_DataNotifications" Type="Self._DataNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataNotifications">
+              <PropertyRef Name="data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataNotifications_Notification">
+          <End Role="Notification" Type="Self.Notification" Multiplicity="1" />
+          <End Role="_DataNotifications" Type="Self._DataNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataNotifications">
+              <PropertyRef Name="notification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataProjects_Data">
+          <End Role="Data" Type="Self.Data" Multiplicity="1" />
+          <End Role="_DataProjects" Type="Self._DataProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataProjects">
+              <PropertyRef Name="data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataProjects_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_DataProjects" Type="Self._DataProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataProjects">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataReports_Data">
+          <End Role="Data" Type="Self.Data" Multiplicity="1" />
+          <End Role="_DataReports" Type="Self._DataReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataReports">
+              <PropertyRef Name="data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DataReports_Report">
+          <End Role="Report" Type="Self.Report" Multiplicity="1" />
+          <End Role="_DataReports" Type="Self._DataReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Report">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_DataReports">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotifRecipients_Notification">
+          <End Role="Notification" Type="Self.Notification" Multiplicity="1" />
+          <End Role="_NotifRecipients" Type="Self._NotifRecipients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_NotifRecipients">
+              <PropertyRef Name="notification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotifRecipients_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_NotifRecipients" Type="Self._NotifRecipients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_NotifRecipients">
+              <PropertyRef Name="recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectLeaders_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_ProjectLeaders" Type="Self._ProjectLeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ProjectLeaders">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectLeaders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_ProjectLeaders" Type="Self._ProjectLeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ProjectLeaders">
+              <PropertyRef Name="leader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectUsers_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_ProjectUsers" Type="Self._ProjectUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ProjectUsers">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_ProjectUsers" Type="Self._ProjectUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ProjectUsers">
+              <PropertyRef Name="projectUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportProjects_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_ReportProjects" Type="Self._ReportProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ReportProjects">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportProjects_Report">
+          <End Role="Report" Type="Self.Report" Multiplicity="1" />
+          <End Role="_ReportProjects" Type="Self._ReportProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Report">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ReportProjects">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportUsers_Report">
+          <End Role="Report" Type="Self.Report" Multiplicity="1" />
+          <End Role="_ReportUsers" Type="Self._ReportUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Report">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ReportUsers">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_ReportUsers" Type="Self._ReportUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_ReportUsers">
+              <PropertyRef Name="reportUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserNotifications_Notification">
+          <End Role="Notification" Type="Self.Notification" Multiplicity="1" />
+          <End Role="_UserNotifications" Type="Self._UserNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Notification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserNotifications">
+              <PropertyRef Name="notification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserNotifications_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_UserNotifications" Type="Self._UserNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserNotifications">
+              <PropertyRef Name="notificationUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProjects_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_UserProjects" Type="Self._UserProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserProjects">
+              <PropertyRef Name="project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProjects_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_UserProjects" Type="Self._UserProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserProjects">
+              <PropertyRef Name="projectUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserReports_Report">
+          <End Role="Report" Type="Self.Report" Multiplicity="1" />
+          <End Role="_UserReports" Type="Self._UserReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Report">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserReports">
+              <PropertyRef Name="report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserReports_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="_UserReports" Type="Self._UserReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="_UserReports">
+              <PropertyRef Name="reportUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRoleClaims" Type="Self.AspNetRoleClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeTrackerModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_CompanyProjects" EntityType="Self._CompanyProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_CompanyProjects].[company] AS [company], 
+    [_CompanyProjects].[project] AS [project]
+    FROM [dbo].[_CompanyProjects] AS [_CompanyProjects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_CompanyUsers" EntityType="Self._CompanyUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_CompanyUsers].[company] AS [company], 
+    [_CompanyUsers].[companyUser] AS [companyUser]
+    FROM [dbo].[_CompanyUsers] AS [_CompanyUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_DataNotifications" EntityType="Self._DataNotifications" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_DataNotifications].[data] AS [data], 
+    [_DataNotifications].[notification] AS [notification]
+    FROM [dbo].[_DataNotifications] AS [_DataNotifications]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_DataProjects" EntityType="Self._DataProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_DataProjects].[data] AS [data], 
+    [_DataProjects].[project] AS [project]
+    FROM [dbo].[_DataProjects] AS [_DataProjects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_DataReports" EntityType="Self._DataReports" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_DataReports].[data] AS [data], 
+    [_DataReports].[report] AS [report]
+    FROM [dbo].[_DataReports] AS [_DataReports]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_NotifRecipients" EntityType="Self._NotifRecipients" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_NotifRecipients].[notification] AS [notification], 
+    [_NotifRecipients].[recipient] AS [recipient]
+    FROM [dbo].[_NotifRecipients] AS [_NotifRecipients]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_ProjectLeaders" EntityType="Self._ProjectLeaders" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_ProjectLeaders].[project] AS [project], 
+    [_ProjectLeaders].[leader] AS [leader]
+    FROM [dbo].[_ProjectLeaders] AS [_ProjectLeaders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_ProjectUsers" EntityType="Self._ProjectUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_ProjectUsers].[project] AS [project], 
+    [_ProjectUsers].[projectUser] AS [projectUser]
+    FROM [dbo].[_ProjectUsers] AS [_ProjectUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_ReportProjects" EntityType="Self._ReportProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_ReportProjects].[report] AS [report], 
+    [_ReportProjects].[project] AS [project]
+    FROM [dbo].[_ReportProjects] AS [_ReportProjects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_ReportUsers" EntityType="Self._ReportUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_ReportUsers].[report] AS [report], 
+    [_ReportUsers].[reportUser] AS [reportUser]
+    FROM [dbo].[_ReportUsers] AS [_ReportUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_UserNotifications" EntityType="Self._UserNotifications" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_UserNotifications].[notificationUser] AS [notificationUser], 
+    [_UserNotifications].[notification] AS [notification]
+    FROM [dbo].[_UserNotifications] AS [_UserNotifications]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_UserProjects" EntityType="Self._UserProjects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_UserProjects].[projectUser] AS [projectUser], 
+    [_UserProjects].[project] AS [project]
+    FROM [dbo].[_UserProjects] AS [_UserProjects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="_UserReports" EntityType="Self._UserReports" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [_UserReports].[reportUser] AS [reportUser], 
+    [_UserReports].[report] AS [report]
+    FROM [dbo].[_UserReports] AS [_UserReports]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CompanyProjects_Company" Association="Self.FK__CompanyProjects_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="_CompanyProjects" EntitySet="_CompanyProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CompanyProjects_Project" Association="Self.FK__CompanyProjects_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_CompanyProjects" EntitySet="_CompanyProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CompanyUsers_Company" Association="Self.FK__CompanyUsers_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="_CompanyUsers" EntitySet="_CompanyUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CompanyUsers_Users" Association="Self.FK__CompanyUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_CompanyUsers" EntitySet="_CompanyUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataNotifications_Data" Association="Self.FK__DataNotifications_Data">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="_DataNotifications" EntitySet="_DataNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataNotifications_Notification" Association="Self.FK__DataNotifications_Notification">
+            <End Role="Notification" EntitySet="Notification" />
+            <End Role="_DataNotifications" EntitySet="_DataNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataProjects_Data" Association="Self.FK__DataProjects_Data">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="_DataProjects" EntitySet="_DataProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataProjects_Project" Association="Self.FK__DataProjects_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_DataProjects" EntitySet="_DataProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataReports_Data" Association="Self.FK__DataReports_Data">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="_DataReports" EntitySet="_DataReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DataReports_Report" Association="Self.FK__DataReports_Report">
+            <End Role="Report" EntitySet="Report" />
+            <End Role="_DataReports" EntitySet="_DataReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotifRecipients_Notification" Association="Self.FK__NotifRecipients_Notification">
+            <End Role="Notification" EntitySet="Notification" />
+            <End Role="_NotifRecipients" EntitySet="_NotifRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotifRecipients_Users" Association="Self.FK__NotifRecipients_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_NotifRecipients" EntitySet="_NotifRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectLeaders_Project" Association="Self.FK__ProjectLeaders_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_ProjectLeaders" EntitySet="_ProjectLeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectLeaders_Users" Association="Self.FK__ProjectLeaders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_ProjectLeaders" EntitySet="_ProjectLeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectUsers_Project" Association="Self.FK__ProjectUsers_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_ProjectUsers" EntitySet="_ProjectUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectUsers_Users" Association="Self.FK__ProjectUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_ProjectUsers" EntitySet="_ProjectUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportProjects_Project" Association="Self.FK__ReportProjects_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_ReportProjects" EntitySet="_ReportProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportProjects_Report" Association="Self.FK__ReportProjects_Report">
+            <End Role="Report" EntitySet="Report" />
+            <End Role="_ReportProjects" EntitySet="_ReportProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportUsers_Report" Association="Self.FK__ReportUsers_Report">
+            <End Role="Report" EntitySet="Report" />
+            <End Role="_ReportUsers" EntitySet="_ReportUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportUsers_Users" Association="Self.FK__ReportUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_ReportUsers" EntitySet="_ReportUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserNotifications_Notification" Association="Self.FK__UserNotifications_Notification">
+            <End Role="Notification" EntitySet="Notification" />
+            <End Role="_UserNotifications" EntitySet="_UserNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserNotifications_Users" Association="Self.FK__UserNotifications_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_UserNotifications" EntitySet="_UserNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProjects_Project" Association="Self.FK__UserProjects_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_UserProjects" EntitySet="_UserProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProjects_Users" Association="Self.FK__UserProjects_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_UserProjects" EntitySet="_UserProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserReports_Report" Association="Self.FK__UserReports_Report">
+            <End Role="Report" EntitySet="Report" />
+            <End Role="_UserReports" EntitySet="_UserReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserReports_Users" Association="Self.FK__UserReports_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="_UserReports" EntitySet="_UserReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles_RoleId" Association="Self.FK_AspNetUserRoles_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers_UserId" Association="Self.FK_AspNetUserRoles_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoleClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetRole" Relationship="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoleClaims" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetRoleClaims" Relationship="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetRoleClaims" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+          <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetUserToken">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="Self.C_CompanyProjects" FromRole="Company" ToRole="Project" />
+          <NavigationProperty Name="Users" Relationship="Self.C_CompanyUsers" FromRole="Company" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Datum">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="dataUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Notifications" Relationship="Self.C_DataNotifications" FromRole="Data" ToRole="Notification" />
+          <NavigationProperty Name="Projects" Relationship="Self.C_DataProjects" FromRole="Data" ToRole="Project" />
+          <NavigationProperty Name="Reports" Relationship="Self.C_DataReports" FromRole="Data" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="sender" Type="Int32" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="timeSent" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Data" Relationship="Self.C_DataNotifications" FromRole="Notification" ToRole="Data" />
+          <NavigationProperty Name="Users" Relationship="Self.C_NotifRecipients" FromRole="Notification" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.C_UserNotifications" FromRole="Notification" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Companies" Relationship="Self.C_CompanyProjects" FromRole="Project" ToRole="Company" />
+          <NavigationProperty Name="Data" Relationship="Self.C_DataProjects" FromRole="Project" ToRole="Data" />
+          <NavigationProperty Name="Users" Relationship="Self.C_ProjectLeaders" FromRole="Project" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.C_ProjectUsers" FromRole="Project" ToRole="Users" />
+          <NavigationProperty Name="Reports" Relationship="Self.C_ReportProjects" FromRole="Project" ToRole="Report" />
+          <NavigationProperty Name="Users2" Relationship="Self.C_UserProjects" FromRole="Project" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="dateGenerated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reportType" Type="Boolean" />
+          <Property Name="colorType" Type="Boolean" />
+          <NavigationProperty Name="Data" Relationship="Self.C_DataReports" FromRole="Report" ToRole="Data" />
+          <NavigationProperty Name="Projects" Relationship="Self.C_ReportProjects" FromRole="Report" ToRole="Project" />
+          <NavigationProperty Name="Users" Relationship="Self.C_ReportUsers" FromRole="Report" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.C_UserReports" FromRole="Report" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountType" Type="Boolean" Nullable="false" />
+          <Property Name="passWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="company" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="Self.C_CompanyUsers" FromRole="Users" ToRole="Company" />
+          <NavigationProperty Name="Notifications" Relationship="Self.C_NotifRecipients" FromRole="Users" ToRole="Notification" />
+          <NavigationProperty Name="Projects" Relationship="Self.C_ProjectLeaders" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Projects1" Relationship="Self.C_ProjectUsers" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Reports" Relationship="Self.C_ReportUsers" FromRole="Users" ToRole="Report" />
+          <NavigationProperty Name="Notifications1" Relationship="Self.C_UserNotifications" FromRole="Users" ToRole="Notification" />
+          <NavigationProperty Name="Projects2" Relationship="Self.C_UserProjects" FromRole="Users" ToRole="Project" />
+          <NavigationProperty Name="Reports1" Relationship="Self.C_UserReports" FromRole="Users" ToRole="Report" />
+        </EntityType>
+        <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRoleClaims" Type="Self.AspNetRoleClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <Association Name="C_CompanyProjects">
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+        </Association>
+        <Association Name="C_CompanyUsers">
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_DataNotifications">
+          <End Role="Data" Type="Self.Datum" Multiplicity="*" />
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+        </Association>
+        <Association Name="C_DataProjects">
+          <End Role="Data" Type="Self.Datum" Multiplicity="*" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+        </Association>
+        <Association Name="C_DataReports">
+          <End Role="Data" Type="Self.Datum" Multiplicity="*" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+        </Association>
+        <Association Name="C_NotifRecipients">
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_ProjectLeaders">
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_ProjectUsers">
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_ReportProjects">
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+        </Association>
+        <Association Name="C_ReportUsers">
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_UserNotifications">
+          <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_UserProjects">
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="C_UserReports">
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="TimeTrackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaim" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserToken" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Data" EntityType="Self.Datum" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="C_CompanyProjects" Association="Self.C_CompanyProjects">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="C_CompanyUsers" Association="Self.C_CompanyUsers">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_DataNotifications" Association="Self.C_DataNotifications">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="Notification" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="C_DataProjects" Association="Self.C_DataProjects">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="C_DataReports" Association="Self.C_DataReports">
+            <End Role="Data" EntitySet="Data" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="C_NotifRecipients" Association="Self.C_NotifRecipients">
+            <End Role="Notification" EntitySet="Notifications" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_ProjectLeaders" Association="Self.C_ProjectLeaders">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_ProjectUsers" Association="Self.C_ProjectUsers">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_ReportProjects" Association="Self.C_ReportProjects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="C_ReportUsers" Association="Self.C_ReportUsers">
+            <End Role="Report" EntitySet="Reports" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_UserNotifications" Association="Self.C_UserNotifications">
+            <End Role="Notification" EntitySet="Notifications" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_UserProjects" Association="Self.C_UserProjects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="C_UserReports" Association="Self.C_UserReports">
+            <End Role="Report" EntitySet="Reports" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeTrackerModelStoreContainer" CdmEntityContainer="TimeTrackerEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="TimeTrackerModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoleClaims">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetRoleClaim">
+              <MappingFragment StoreEntitySet="AspNetRoleClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="ProviderDisplayName" ColumnName="ProviderDisplayName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+                <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserTokens">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AspNetUserToken">
+              <MappingFragment StoreEntitySet="AspNetUserTokens">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Data">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Datum">
+              <MappingFragment StoreEntitySet="Data">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataUser" ColumnName="dataUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="timeSent" ColumnName="timeSent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dateGenerated" ColumnName="dateGenerated" />
+                <ScalarProperty Name="reportType" ColumnName="reportType" />
+                <ScalarProperty Name="colorType" ColumnName="colorType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TimeTrackerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TimeTrackerModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="accountType" ColumnName="accountType" />
+                <ScalarProperty Name="passWord" ColumnName="passWord" />
+                <ScalarProperty Name="company" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="TimeTrackerModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_CompanyProjects" TypeName="TimeTrackerModel.C_CompanyProjects" StoreEntitySet="_CompanyProjects">
+            <EndProperty Name="Company">
+              <ScalarProperty Name="id" ColumnName="company" />
+            </EndProperty>
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_CompanyUsers" TypeName="TimeTrackerModel.C_CompanyUsers" StoreEntitySet="_CompanyUsers">
+            <EndProperty Name="Company">
+              <ScalarProperty Name="id" ColumnName="company" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="companyUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_DataNotifications" TypeName="TimeTrackerModel.C_DataNotifications" StoreEntitySet="_DataNotifications">
+            <EndProperty Name="Data">
+              <ScalarProperty Name="id" ColumnName="data" />
+            </EndProperty>
+            <EndProperty Name="Notification">
+              <ScalarProperty Name="id" ColumnName="notification" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_DataProjects" TypeName="TimeTrackerModel.C_DataProjects" StoreEntitySet="_DataProjects">
+            <EndProperty Name="Data">
+              <ScalarProperty Name="id" ColumnName="data" />
+            </EndProperty>
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_DataReports" TypeName="TimeTrackerModel.C_DataReports" StoreEntitySet="_DataReports">
+            <EndProperty Name="Data">
+              <ScalarProperty Name="id" ColumnName="data" />
+            </EndProperty>
+            <EndProperty Name="Report">
+              <ScalarProperty Name="id" ColumnName="report" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_NotifRecipients" TypeName="TimeTrackerModel.C_NotifRecipients" StoreEntitySet="_NotifRecipients">
+            <EndProperty Name="Notification">
+              <ScalarProperty Name="id" ColumnName="notification" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="recipient" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_ProjectLeaders" TypeName="TimeTrackerModel.C_ProjectLeaders" StoreEntitySet="_ProjectLeaders">
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="leader" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_ProjectUsers" TypeName="TimeTrackerModel.C_ProjectUsers" StoreEntitySet="_ProjectUsers">
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="projectUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_ReportProjects" TypeName="TimeTrackerModel.C_ReportProjects" StoreEntitySet="_ReportProjects">
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+            <EndProperty Name="Report">
+              <ScalarProperty Name="id" ColumnName="report" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_ReportUsers" TypeName="TimeTrackerModel.C_ReportUsers" StoreEntitySet="_ReportUsers">
+            <EndProperty Name="Report">
+              <ScalarProperty Name="id" ColumnName="report" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="reportUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_UserNotifications" TypeName="TimeTrackerModel.C_UserNotifications" StoreEntitySet="_UserNotifications">
+            <EndProperty Name="Notification">
+              <ScalarProperty Name="id" ColumnName="notification" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="notificationUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_UserProjects" TypeName="TimeTrackerModel.C_UserProjects" StoreEntitySet="_UserProjects">
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="projectUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="C_UserReports" TypeName="TimeTrackerModel.C_UserReports" StoreEntitySet="_UserReports">
+            <EndProperty Name="Report">
+              <ScalarProperty Name="id" ColumnName="report" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="reportUser" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
