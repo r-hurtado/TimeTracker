@@ -50,7 +50,13 @@ namespace test8.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
-            return View();
+            Project project = new Project();
+            project._users = PollDBForUsers();
+            project.startDate = DateTime.Today;
+            //Default to a one week project
+            project.endDate = new DateTime(DateTime.Today.AddDays(7).Ticks);
+
+            return View(project);
         }
 
         // POST: Projects/Create
@@ -58,8 +64,9 @@ namespace test8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,title,Description,leader,time,startDate,endDate")] Project project)
+        public ActionResult Create([Bind(Include = "id,title,Description,leader,time,startDate,endDate,users")] Project project)
         {
+            project._users = PollDBForUsers();
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
@@ -82,6 +89,9 @@ namespace test8.Controllers
             {
                 return HttpNotFound();
             }
+
+            project._users = PollDBForUsers();
+
             return View(project);
         }
 
@@ -90,8 +100,9 @@ namespace test8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,title,Description,leader,time,startDate,endDate,users")] Project project)
+        public ActionResult Edit([Bind(Include = "id,title,Description,leader,time,startDate,endDate,users,_users")] Project project)
         {
+            project._users = PollDBForUsers();
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
@@ -101,7 +112,8 @@ namespace test8.Controllers
             return View(project);
         }
 
-        public ActionResult LoadUser()
+        //LoadUser method for filling a dropdown
+        public SelectList PollDBForUsers()
         {
             var list = new List<User>();
             int tempId = 0;
@@ -117,8 +129,13 @@ namespace test8.Controllers
 
             conn.Close();
 
+            return new SelectList(list, "Name", "Name");
+        }
+
+        public ActionResult LoadUser()
+        {
             var model = new Project();
-            model._users = new SelectList(list, "Id", "Name");
+            model._users = PollDBForUsers();
             return View(model);
         }
 
