@@ -7,13 +7,13 @@ namespace test8.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class users_3 : IMigrationMetadata
+    public sealed partial class TimeInput : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(users_3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TimeInput));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703082350449_users_3"; }
+            get { return "201703131802543_TimeInput"; }
         }
         
         string IMigrationMetadata.Source

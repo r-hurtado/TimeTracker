@@ -1,0 +1,34 @@
+﻿@model IEnumerable<test8.Models.Project.timeLog>
+
+@{
+    ViewBag.Title = "Time Details";
+}
+
+<h2>Project: @ViewBag.Project</h2>
+
+<table class="table">
+    <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+    </tr>
+}
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Details", "Details", new { id = ViewBag.id })
+</p>

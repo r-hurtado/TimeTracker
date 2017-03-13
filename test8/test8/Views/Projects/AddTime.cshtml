@@ -18,6 +18,7 @@
         @Html.HiddenFor(model => model.id)
         @Html.HiddenFor(model => model.title)
         @Html.HiddenFor(model => model.Description)
+        @Html.HiddenFor(model => model.time)
         @Html.HiddenFor(model => model.leader)
         @Html.HiddenFor(model => model.startDate)
         @Html.HiddenFor(model => model.endDate)
@@ -49,7 +50,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.time, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.time, new { htmlAttributes = new { @type = "number", @min = "0", @step = "0.25", @value = "0" } })
+                <input name="AddVal" type="number" min="0" step="0.25" value="0" />
+                @*@Html.EditorFor(model => model.time, new { htmlAttributes = new { @type = "number", @min = "0", @step = "0.25", @value = "0" } })*@
                 @Html.ValidationMessageFor(model => model.time, "", new { @class = "text-danger" })
             </div>
         </div>

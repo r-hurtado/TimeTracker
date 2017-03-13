@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Project</h4>
+    <h4>Project: @Model.title</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -62,5 +62,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Time Details", "TimeDetails", new { id = Model.id })
 </p>

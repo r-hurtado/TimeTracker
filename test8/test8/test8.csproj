@@ -190,9 +190,9 @@
     <Compile Include="Migrations\201703082134505_users.Designer.cs">
       <DependentUpon>201703082134505_users.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703082350449_users_3.cs" />
-    <Compile Include="Migrations\201703082350449_users_3.Designer.cs">
-      <DependentUpon>201703082350449_users_3.cs</DependentUpon>
+    <Compile Include="Migrations\201703131802543_TimeInput.cs" />
+    <Compile Include="Migrations\201703131802543_TimeInput.Designer.cs">
+      <DependentUpon>201703131802543_TimeInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,6 +272,7 @@
     <Content Include="Views\Projects\AddTime.cshtml" />
     <Content Include="Views\Home\Report.cshtml" />
     <Content Include="Views\Projects\LoadUser.cshtml" />
+    <Content Include="Views\Projects\TimeDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,8 +295,8 @@
     <EmbeddedResource Include="Migrations\201703082134505_users.resx">
       <DependentUpon>201703082134505_users.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703082350449_users_3.resx">
-      <DependentUpon>201703082350449_users_3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703131802543_TimeInput.resx">
+      <DependentUpon>201703131802543_TimeInput.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

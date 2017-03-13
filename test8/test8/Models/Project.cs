@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using Foolproof;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace test8.Models
 {
@@ -52,6 +53,25 @@ namespace test8.Models
         {
             get { return new SelectList(_users, "Id", "Name"); }
         }
+
+        public class timeLog
+        {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int ID { get; set; }
+            public string user { get; set; }
+            public double time { get; set; }
+            public DateTime date { get; set; }
+
+            public timeLog(string u, double t, DateTime d)
+            {
+                user = u;
+                time = t;
+                date = d;
+            }
+        }
+
+        public List<timeLog> inputs { get; set; }
     }
 
     public class User

@@ -78,6 +78,7 @@ namespace test8.Controllers
         }
 
         // GET: Projects/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -110,6 +111,42 @@ namespace test8.Controllers
                 return RedirectToAction("Index");
             }
             return View(project);
+        }
+
+        // GET: Projects/TimeDetails/2
+        public ActionResult TimeDetails(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project project = db.Projects.Find(id);
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+            SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT [user], [time], [date], [Project_id] FROM dbo.timeLogs", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            project.inputs = new List<Project.timeLog>();
+
+            while (rdr.Read())
+                if (rdr.GetInt32(3) == id)
+                {
+                    Project.timeLog t = new Project.timeLog(rdr.GetString(0), rdr.GetDouble(1), rdr.GetDateTime(2));
+                    project.inputs.Add(t);
+                }
+
+            ViewBag.Project = project.title;
+            ViewBag.ID = project.id;
+
+            return View(project.inputs.ToList());
+
+            //return View(db.Projects.ToList());
         }
 
         //LoadUser method for filling a dropdown
@@ -159,10 +196,28 @@ namespace test8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddTime([Bind(Include = "id,title,Description,leader,time,startDate,endDate")] Project project)
+        public ActionResult AddTime([Bind(Include = "id,title,Description,leader,time,startDate,endDate,inputs")] Project project, double AddVal)
         {
             if (ModelState.IsValid)
             {
+                Project.timeLog t = new Project.timeLog(User.Identity.Name, AddVal, DateTime.Now);
+                project.time += AddVal;
+
+                SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                conn.Open();
+                string sql = "INSERT INTO[dbo].[timeLogs] ([user], [time], [date], [Project_id]) VALUES(@u, @t, @d, @i)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@u", t.user);
+                cmd.Parameters.AddWithValue("@t", t.time);
+                cmd.Parameters.AddWithValue("@d", t.date);
+                cmd.Parameters.AddWithValue("@i", project.id);
+
+                cmd.ExecuteNonQuery();
+
+                //if (project.inputs == null)
+                //    project.inputs = new List<Project.timeLog>();
+                //project.inputs.Add(t);
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -190,6 +245,7 @@ namespace test8.Controllers
 
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
