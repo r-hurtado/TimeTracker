@@ -55,7 +55,7 @@
                     {
                         if (item.ID == Model.id)
                         {
-                            <li>(@Html.ActionLink("Remove", "Remove", new { id = item.ID, user = item.user })) @item.user</li>
+                            <li>(@Html.ActionLink("Remove", "Remove", new { id = item.ID, user = item.user, redirect = "Edit" })) @item.user</li>
                         }
                     }
 

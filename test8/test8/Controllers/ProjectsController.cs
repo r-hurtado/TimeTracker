@@ -144,7 +144,7 @@ namespace test8.Controllers
             return View(project);
         }
 
-        public ActionResult Remove(int id, string user)
+        public ActionResult Remove(int id, string user, string redirect)
         {
             SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
             conn.Open();
@@ -156,21 +156,46 @@ namespace test8.Controllers
 
             cmd.ExecuteNonQuery();
 
-            return RedirectToAction("Edit", new { id = id });
+            return RedirectToAction(redirect, new { id = id });
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Add(int id)
+        {
+            Project project = db.Projects.Find(id);
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+
+            project.access = getUserAccess(id);
+            SelectList users = PollDBForUsers();
+
+            foreach (var user in users)
+            {
+                foreach (var access in project.access)
+                    if (access.user == user.Value)
+                        users = new SelectList(users.Where(x => x.Value != user.Value).ToList(), "Value", "Text");
+            }
+
+            ViewBag.Users = users;
+            return View(project);
+        }
+
+        public ActionResult AddUser(int id, string user)
         {
             SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
             conn.Open();
-            string sql = "DELETE FROM [dbo].[projectAccesses] WHERE [user] = @u AND [Project_id] = @p";
+            string sql = "INSERT INTO[dbo].[projectAccesses] ([user], [Project_id], [level]) VALUES(@u, @p, @l)";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            
+
+            cmd.Parameters.AddWithValue("@u", user);
             cmd.Parameters.AddWithValue("@p", id);
+            cmd.Parameters.AddWithValue("@l", 0);
 
             cmd.ExecuteNonQuery();
 
-            return RedirectToAction("Edit", new { id = id });
+            return RedirectToAction("Add", new { id = id });
         }
 
         // GET: Projects/TimeDetails/2
