@@ -21,7 +21,7 @@ namespace test8.Models
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "Time")]
+        [Display(Name = "Hours")]
         [Range(0, double.MaxValue)]
         [DivisibleByQuarter]
         public double time { get; set; }
@@ -72,6 +72,27 @@ namespace test8.Models
         }
 
         public List<timeLog> inputs { get; set; }
+
+        public class projectAccess
+        {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int ID { get; set; }
+            public string user { get; set; }
+
+            //0 = user
+            //1 = leader
+            public int level { get; set; }
+
+            public projectAccess(string u, int p, int l)
+            {
+                user = u;
+                ID = p;
+                level = l;
+            }
+        }
+
+        public List<projectAccess> access { get; set; }
     }
 
     public class User

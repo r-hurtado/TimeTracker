@@ -33,6 +33,22 @@
         <dd>
             @Html.DisplayFor(model => model.leader)
         </dd>
+        
+        <dt>
+            Users
+        </dt>
+
+        <dd>
+            <ul>
+            @foreach (var item in Model.access)
+            {
+                if(item.ID == Model.id)
+                {
+                    <li>@item.user</li>
+                }
+            }
+            </ul>
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.time)
@@ -63,5 +79,6 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Time Details", "TimeDetails", new { id = Model.id })
+    @Html.ActionLink("Time Details", "TimeDetails", new { id = Model.id }) |
+    @Html.ActionLink("Time Per User", "TimePerUser", new { id = Model.id })
 </p>

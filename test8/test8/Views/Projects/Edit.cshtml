@@ -48,6 +48,34 @@
         </div>
 
         <div class="form-group">
+            <div class="control-label col-md-2"><b>Users</b></div>
+            <div class="col-md-10">
+                <ul>
+                    @foreach (var item in Model.access)
+                    {
+                        if (item.ID == Model.id)
+                        {
+                            <li>(@Html.ActionLink("Remove", "Remove", new { id = item.ID, user = item.user })) @item.user</li>
+                        }
+                    }
+
+                    @*<li>
+                        @using (Html.BeginForm("Add", "Project", FormMethod.Get))
+                        {
+                            <div>
+                                @*(@Html.ActionLink("Add", "Remove", new { id = Model.id, user = ViewBag.UserDrop }))
+                                @Html.DropDownList("UserDrop", "Please Select a User")
+                                <input type="submit" value="Add" />
+                            </div>
+                        }
+                        </li>*@
+                    <li>(@Html.ActionLink("Add Users", "Add", new { id = Model.id})) </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.time, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.time, new { htmlAttributes = new { @class = "form-control" } })

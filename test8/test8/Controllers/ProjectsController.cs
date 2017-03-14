@@ -44,7 +44,35 @@ namespace test8.Controllers
             {
                 return HttpNotFound();
             }
+
+            project.access = getUserAccess(project.id);
+
             return View(project);
+        }
+
+        public List<Project.projectAccess> getUserAccess(int id)
+        {
+            List<Project.projectAccess> access;
+
+            SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT [user], [Project_id], [level] FROM dbo.projectAccesses", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            access = new List<Project.projectAccess>();
+
+            int sqlID;
+            while (rdr.Read())
+            {
+                sqlID = rdr.GetInt32(1);
+                if (sqlID == id)
+                {
+                    Project.projectAccess t = new Project.projectAccess(rdr.GetString(0), rdr.GetInt32(1), rdr.GetInt32(2));
+                    access.Add(t);
+                }
+            }
+            return access.OrderBy(i => i.user).ToList();
         }
 
         // GET: Projects/Create
@@ -92,6 +120,8 @@ namespace test8.Controllers
             }
 
             project._users = PollDBForUsers();
+            project.access = getUserAccess(project.id);
+            ViewBag.UserDrop = PollDBForUsers();
 
             return View(project);
         }
@@ -110,7 +140,37 @@ namespace test8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(project);
+        }
+
+        public ActionResult Remove(int id, string user)
+        {
+            SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            conn.Open();
+            string sql = "DELETE FROM [dbo].[projectAccesses] WHERE [user] = @u AND [Project_id] = @p";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@u", user);
+            cmd.Parameters.AddWithValue("@p", id);
+
+            cmd.ExecuteNonQuery();
+
+            return RedirectToAction("Edit", new { id = id });
+        }
+
+        public ActionResult Add(int id)
+        {
+            SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            conn.Open();
+            string sql = "DELETE FROM [dbo].[projectAccesses] WHERE [user] = @u AND [Project_id] = @p";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            
+            cmd.Parameters.AddWithValue("@p", id);
+
+            cmd.ExecuteNonQuery();
+
+            return RedirectToAction("Edit", new { id = id });
         }
 
         // GET: Projects/TimeDetails/2
@@ -141,12 +201,47 @@ namespace test8.Controllers
                     project.inputs.Add(t);
                 }
 
+            project.inputs = project.inputs.OrderBy(i => i.date).ToList();
+
             ViewBag.Project = project.title;
             ViewBag.ID = project.id;
 
             return View(project.inputs.ToList());
 
             //return View(db.Projects.ToList());
+        }
+
+        // GET: Projects/TimeDetails/2
+        public ActionResult TimePerUser(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            Project project = db.Projects.Find(id);
+            if (project == null)
+                return HttpNotFound();
+
+            SqlConnection conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = test8.Models.ProjetDBContext; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT [user], [time], [date], [Project_id] FROM dbo.timeLogs", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            project.inputs = new List<Project.timeLog>();
+
+            while (rdr.Read())
+                if (rdr.GetInt32(3) == id)
+                {
+                    Project.timeLog t = new Project.timeLog(rdr.GetString(0), rdr.GetDouble(1), rdr.GetDateTime(2));
+                    project.inputs.Add(t);
+                }
+
+            project.inputs = project.inputs.OrderBy(i => i.user).ToList();
+
+            ViewBag.Project = project.title;
+            ViewBag.ID = project.id;
+
+            return View(project.inputs.ToList());
         }
 
         //LoadUser method for filling a dropdown

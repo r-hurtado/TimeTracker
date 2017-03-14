@@ -1,0 +1,50 @@
+﻿@model IEnumerable<test8.Models.Project.timeLog>
+
+@{
+    ViewBag.Title = "Time Details";
+}
+
+<h2>Project: @ViewBag.Project</h2>
+
+<table class="table">
+    @{
+        string user = "";
+        <tr>
+            <th>User</th>
+            <th>Hours</th>
+        </tr>
+
+        foreach (var item in Model)
+        {
+            double timePerUser= 0;
+            if (user != item.user)
+            {
+                user = item.user;
+                foreach (var inner in Model)
+                {
+                    if (user == inner.user)
+                    {
+                        timePerUser += inner.time;
+                    }
+                }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.user)
+                    </td>
+                    <td>
+                        @timePerUser
+                    </td>
+                </tr>
+            }
+
+
+        }
+    }
+    <tr><th></th><th></th><th></th></tr>
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Details", "Details", new { id = ViewBag.id }) |
+    @Html.ActionLink("Time Details", "TimeDetails", new { id = ViewBag.id })
+</p>

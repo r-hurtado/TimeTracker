@@ -7,28 +7,49 @@
 <h2>Project: @ViewBag.Project</h2>
 
 <table class="table">
-    <tr>
-        <th>User</th>
-        <th>Date</th>
-        <th>Time</th>
-    </tr>
+    @{
+        DateTime day = new DateTime(0);
+        <tr>
+            <th>Date / User</th>
+            <th>Time</th>
+            <th>Hours</th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.user)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.time)
-        </td>
-    </tr>
-}
+        foreach (var item in Model)
+        {
+            double timePerDay = 0;
+            if (day.Date.ToShortDateString() != item.date.ToShortDateString())
+            {
+                day = item.date.Date;
+                foreach (var inner in Model)
+                {
+                    if (day.Date.ToShortDateString() == inner.date.ToShortDateString())
+                    {
+                        timePerDay += inner.time;
+                    }
+                }
+                <tr><th></th><th></th><th></th></tr>
+                <tr><th>@day.Date.ToShortDateString()</th><th></th><th>@timePerDay</th></tr>
+            }
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user)
+                </td>
+                <td>
+                    @item.date.ToShortTimeString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+            </tr>
+        }
+    }
+    <tr><th></th><th></th><th></th></tr>
 </table>
 
 <p>
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Back to Details", "Details", new { id = ViewBag.id })
+    @Html.ActionLink("Back to Details", "Details", new { id = ViewBag.id }) |
+    @Html.ActionLink("Time Per User", "TimePerUser", new { id = ViewBag.id })
 </p>

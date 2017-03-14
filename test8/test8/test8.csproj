@@ -194,6 +194,14 @@
     <Compile Include="Migrations\201703131802543_TimeInput.Designer.cs">
       <DependentUpon>201703131802543_TimeInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703132354284_projectAccess.cs" />
+    <Compile Include="Migrations\201703132354284_projectAccess.Designer.cs">
+      <DependentUpon>201703132354284_projectAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703140020115_projectAccessLevel.cs" />
+    <Compile Include="Migrations\201703140020115_projectAccessLevel.Designer.cs">
+      <DependentUpon>201703140020115_projectAccessLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -273,6 +281,7 @@
     <Content Include="Views\Home\Report.cshtml" />
     <Content Include="Views\Projects\LoadUser.cshtml" />
     <Content Include="Views\Projects\TimeDetails.cshtml" />
+    <Content Include="Views\Projects\TimePerUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +306,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703131802543_TimeInput.resx">
       <DependentUpon>201703131802543_TimeInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703132354284_projectAccess.resx">
+      <DependentUpon>201703132354284_projectAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703140020115_projectAccessLevel.resx">
+      <DependentUpon>201703140020115_projectAccessLevel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

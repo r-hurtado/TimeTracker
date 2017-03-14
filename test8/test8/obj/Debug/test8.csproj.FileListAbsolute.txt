@@ -73,3 +73,5 @@ R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.csproj.GenerateResource.Cache
 R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.Migrations.Initial.resources
 R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.Migrations.users.resources
 R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.Migrations.TimeInput.resources
+R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.Migrations.projectAccess.resources
+R:\School Stuff\CST\SP\test8\test8\obj\Debug\test8.Migrations.projectAccessLevel.resources
