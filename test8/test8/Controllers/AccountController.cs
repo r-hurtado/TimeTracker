@@ -79,7 +79,7 @@ namespace test8.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (SignInManager.UserManager.GetAccessFailedCount(UserManager.FindByName(model.Email).Id) == 0)
+                    if (SignInManager.UserManager.GetAccessFailedCount(UserManager.FindByName(model.Email).Id) == -1)
                         return RedirectToAction("ChangePassword", "Manage");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -165,6 +165,7 @@ namespace test8.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    SignInManager.UserManager.Users.ToList()[SignInManager.UserManager.Users.ToList().IndexOf(user)].AccessFailedCount = -1;//.Select(u => u.Email == user.Email)
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

@@ -12,11 +12,29 @@
 <p> User Emails: </p>
 
 <ul>
-    @foreach (test8.Models.ApplicationUser user in Model){
+    @foreach (test8.Models.ApplicationUser user in Model)
+    {
+        if (user.Roles.Count == 0)
+        {
+            <li>
+               @Html.DisplayFor(modelItem => user.UserName)
+            </li>
+        }
 
-    <li>
-        @Html.DisplayFor(modelItem => user.UserName)
-    </li>
+    }
+</ul>
+
+
+<p> Admin Emails: </p>
+<ul>
+    @foreach (test8.Models.ApplicationUser user in Model)
+    {
+        if (user.Roles.Count > 0)
+        {
+            <li>
+                @Html.DisplayFor(modelItem => user.UserName)
+            </li>
+        }
 
     }
 </ul>

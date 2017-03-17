@@ -4,3 +4,61 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Calendar').fullCalendar({
+                customButtons: {
+                    active: {
+                        text: 'Active',
+                        click: function () {
+                            $('#Calendar').fullCalendar('removeEventSources', $('#Calendar').fullCalendar('getEventSources'));
+                            $('#Calendar').fullCalendar('addEventSource', "/home/getProjects/-1");
+                        }
+                    },
+                    full: {
+                        text: 'All',
+                        click: function () {
+                            $('#Calendar').fullCalendar('removeEventSources', $('#Calendar').fullCalendar('getEventSources'));
+                            $('#Calendar').fullCalendar('addEventSource', "/home/getProjects/-2");
+                        },
+                        disabled: true
+                    }
+                },
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'today active,full'
+                },
+                defaultView: 'month',
+                editable: false,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                events: "/home/getProjects/"
+            });
+
+            $('#Calendar').fullCalendar('removeEventSources', $('#Calendar').fullCalendar('getEventSources'));
+            $('#Calendar').fullCalendar('addEventSource', "/home/getProjects/" + @ViewBag.ID);
+        });
+    </script>
+}
+
+<table class="table">
+    <tr>
+        <td>
+            <div id="Calendar">
+            </div>
+        </td>
+        <td>
+            <ul>
+                @foreach (var item in ViewBag.Projects)
+                {
+                    string title = item.title;
+                    <li>@Html.ActionLink(@title, "Report", new { id = @item.id })</li>
+                }
+            </ul>
+        </td>
+    </tr>
+</table>
